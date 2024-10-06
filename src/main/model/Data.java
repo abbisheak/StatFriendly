@@ -12,6 +12,16 @@ public class Data<T> {
     public Data(T data) { 
     }
 
+    /*
+    *  MODIFIES: this
+    *  EFFECTS: updates originalData with newData;
+    *           if newData instanceOf Double set newData as originalData
+    *           with the decimal removed, else record newData as
+    *            originalData
+    */
+    public void updateDate(T newData){
+    }
+
     // EFFECTS: returns data 
     public T getData(){
         return null;

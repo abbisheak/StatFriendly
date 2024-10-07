@@ -1,34 +1,18 @@
 package model;
 
-// Data for a data set
-public class Data<T> {
+// Represents data in a data set
+public interface Data<T> {
 
-    /*
-     * REQUIRES: originalData is one of: Double, Integer, or String
-     * EFFECTS: records originalData;
-     *          if data instanceOf Double set data as originalData with
-     *          the decimal removed, else record data as originalData
-     */
-    public Data(T data) { 
-    }
+    //Effects: returns true if given data matches this data
+    //         false otherwise
+    public abstract Boolean compare(T data);
 
-    /*
-    *  MODIFIES: this
-    *  EFFECTS: updates originalData with newData;
-    *           if newData instanceOf Double set newData as originalData
-    *           with the decimal removed, else record newData as
-    *            originalData
-    */
-    public void updateDate(T newData){
-    }
+    //Effects: returns true if given data contains the same data
+    //         as this, false otherwise
+    public abstract Boolean compare(Data<T> data);
 
-    // EFFECTS: returns data 
-    public T getData(){
-        return null;
-    }
+    public void setData(T newData);
 
-    // EFFECTS: returns originalData
-    public T getOriginalData(){
-        return null;
-    }
+    public T getData();
+
 }

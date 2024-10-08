@@ -1,6 +1,6 @@
 package model.dataTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 public interface DataTest {
@@ -22,5 +22,5 @@ public interface DataTest {
 
     @Test
     public void testGetData();
-    
+
 }

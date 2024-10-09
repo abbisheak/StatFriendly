@@ -2,7 +2,7 @@ package model;
 
 // Represents Rational data in a data set
 public class DoubleData implements Data<Double> {
-    private static final Double MAX_ACCURACY = 0.0000000001;
+    private static final Double MAX_ACCURACY = 0.00001;
 
     private Double data;
 

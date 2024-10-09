@@ -2,34 +2,35 @@ package model;
 
 // Represents Rational data in a data set
 public class DoubleData implements Data<Double> {
+    private static final Double MAX_ACCURACY = 0.0000000001;
+
+    private Double data;
 
     //Effects: data's value is given value
     public DoubleData(Double data){
-        // stub
+        this.data = data;
     }
 
     //Effects: returns true if given data matches this data
-    //         up to 10 decimal places, false otherwise
+    //         up to 5 decimal places, false otherwise
     public Boolean compare(Double data) {
-        // stub
-        return false;
+        System.out.println(this.data - data);
+        return Math.abs((this.data - data)) < MAX_ACCURACY;
     }
 
     //Effects: returns true if given data contains the same data
-    //         as this up to a 10 decimal point accuracy, 
+    //         as this up to a 5 decimal point accuracy, 
     //         false otherwise
     public Boolean compare(Data<Double> data) {
-        // stub
-        return false;
+        return compare(data.getData());
     }
 
     public void setData(Double newData) {
-        // stub
+        this.data = newData;
     }
 
     public Double getData() {
-        // stub
-        return null;
+        return data;
     }
     
 }

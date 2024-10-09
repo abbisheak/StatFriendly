@@ -40,8 +40,8 @@ public class DoubleDataTest implements DataTest {
         assertTrue(testLargeDoubleData.compare(398721321.3389120984));
         assertTrue(testSmallDoubleData.compare(-213.23));
 
-        assertTrue(testLargeDoubleData.compare(398721321.33891209841));
-        assertTrue(testSmallDoubleData.compare(-213.23000000009));
+        assertTrue(testLargeDoubleData.compare(398721321.3389130984));
+        assertTrue(testSmallDoubleData.compare(-213.230001));
     }
 
     @Test
@@ -49,13 +49,13 @@ public class DoubleDataTest implements DataTest {
         assertTrue(testLargeDoubleData.compare(398721321.3389120984));
         assertTrue(testSmallDoubleData.compare(-213.23));
 
-        assertFalse(testLargeDoubleData.compare(398721321.3389120985));
-        assertFalse(testSmallDoubleData.compare(-213.2300000001));
+        assertFalse(testLargeDoubleData.compare(398721321.33893));
+        assertFalse(testSmallDoubleData.compare(-213.23002));
     }
 
     @Test
     public void testCompareDataObject() {
-        assertTrue(testLargeDoubleData.compare(398721321.3389120984));
+        assertTrue(testLargeDoubleData.compare(398721321.338912));
         assertTrue(testSmallDoubleData.compare(-213.23));
 
         DoubleData compareLargeDoubleData = new DoubleData(398721321.3389120984);

@@ -4,7 +4,7 @@ package model;
 public class DoubleData implements Data<Double> {
 
     //Effects: data's value is given value
-    public DoubleData(){
+    public DoubleData(Double data){
         // stub
     }
 

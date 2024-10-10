@@ -52,7 +52,7 @@ public class DataSet<T> {
         return false;
     }
 
-    public T getMean() {
+    public Double getMean() {
         // stub
         return null;
     }
@@ -77,7 +77,7 @@ public class DataSet<T> {
         return null;
     }
 
-    public T getStandardDeviation() {
+    public Double getStandardDeviation() {
         // stub
         return null;
     }

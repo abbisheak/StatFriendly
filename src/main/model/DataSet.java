@@ -3,10 +3,8 @@ package model;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import model.data.Data;
-
 // Represents a data set for a single concept
-public class DataSet<T> {
+public class DataSet<T,W> {
 
     // Effects: creates an empty DataSet with no elements in
     // in it and all statistic calculations set to 0;
@@ -17,19 +15,19 @@ public class DataSet<T> {
     // Modifies: this
     // Effects: If data != null AND !contains(data) add to set and recalculate 
     // statistical information, otherwise do nothing;
-    public void addData(Data<T> data) {
+    public void addData(W data) {
         // stub
     }
 
     // Modifies: this
     // Effects: If set contains given data, then remove data from data set
     // otherwise do nothing
-    public void removeData(Data<T> data) {
+    public void removeData(W data) {
         // stub
     }
 
     // Effects: returns true if given data is in set, otherwise false
-    public Boolean contains(Data<T> data) {
+    public Boolean contains(W data) {
         // stub
         return false;
     }
@@ -41,7 +39,7 @@ public class DataSet<T> {
     }
 
     // Effects: returns an iterator for the data set
-    public Iterator<Data<T>> iterator() {
+    public Iterator<W> iterator() {
         // stub
         return null;
     }
@@ -82,7 +80,7 @@ public class DataSet<T> {
         return null;
     }
 
-    public HashSet<DataSet<T>> getData() {
+    public HashSet<W> getData() {
         // stub
         return null;
     }

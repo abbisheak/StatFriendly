@@ -4,16 +4,17 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 // Represents a data set for a single concept
-public class DataSet<T,W> {
+public class DataSet<T, W> {
 
-    // Effects: creates an empty DataSet with no elements in
-    // in it and all statistic calculations set to 0;
+    // Requires: The generic used for W must be T: W<T>
+    // Effects: creates an empty data set with no elements in in it and all
+    // statistic calculations set to 0;
     public DataSet(Boolean isSample) {
         // stub
     }
 
     // Modifies: this
-    // Effects: If data != null AND !contains(data) add to set and recalculate 
+    // Effects: If data != null AND !contains(data) add to set and recalculate
     // statistical information, otherwise do nothing;
     public void addData(W data) {
         // stub
@@ -44,6 +45,12 @@ public class DataSet<T,W> {
         return null;
     }
 
+    // Effects: returns the number of data entries in DataSet
+    public int size() {
+        // stub
+        return 0;
+    }
+
     // Effects: returns true if DataSet is data for a sample population
     public Boolean isSample() {
         // stub
@@ -55,11 +62,16 @@ public class DataSet<T,W> {
         return null;
     }
 
+    // Effects: If size() is even, return the size()/2 greatest element
+    // of the set, else return the (size()-1)/2 greatest element of the 
+    // set
     public T getMedian() {
         // stub
         return null;
     }
 
+    // Effects: Returns the data value with greatest amount of occurences
+    // with a bias towards to the lesser data value
     public T getMode() {
         // stub
         return null;
@@ -75,6 +87,9 @@ public class DataSet<T,W> {
         return null;
     }
 
+    // Effects: If isSample, returns zero (base value) until size() > 1,
+    // then returns calculated standard deviation, else return standard
+    // deviation
     public Double getStandardDeviation() {
         // stub
         return null;

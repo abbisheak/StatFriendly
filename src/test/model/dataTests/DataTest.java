@@ -22,5 +22,6 @@ public interface DataTest {
 
     @Test
     public void testGetData();
+    
 
 }

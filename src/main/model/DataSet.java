@@ -5,12 +5,22 @@ import java.util.Iterator;
 
 // Represents a data set for a single concept
 public class DataSet<T, W> {
+    private HashSet<W> dataSet;
+    private Boolean isSample;
+    private Double mean;
+    private T median;
+    private T mode;
+    private T max;
+    private T min;
+    private Double standardDeviation;
+
 
     // Requires: The generic used for W must be T: W<T>
-    // Effects: creates an empty data set with no elements in in it and all
-    // statistic calculations set to 0;
+    // Effects: creates an empty data set with no elements in in it; if isSample
+    // sets makes DataSet a sample DataSet, otherwise a population dataSet
     public DataSet(Boolean isSample) {
-        // stub
+        dataSet = new HashSet<>();
+        this.isSample = isSample; 
     }
 
     // Modifies: this
@@ -51,17 +61,20 @@ public class DataSet<T, W> {
         return 0;
     }
 
+    // Requires: !dataSet.empty()
     // Effects: returns true if DataSet is data for a sample population
     public Boolean isSample() {
         // stub
         return false;
     }
 
+    // Requires: !dataSet.empty()
     public Double getMean() {
         // stub
         return null;
     }
 
+    // Requires: !dataSet.empty()
     // Effects: If size() is even, return the size()/2 greatest element
     // of the set, else return the (size()-1)/2 greatest element of the 
     // set
@@ -70,6 +83,7 @@ public class DataSet<T, W> {
         return null;
     }
 
+    // Requires: !dataSet.empty()
     // Effects: Returns the data value with greatest amount of occurences
     // with a bias towards to the lesser data value
     public T getMode() {
@@ -77,16 +91,19 @@ public class DataSet<T, W> {
         return null;
     }
 
+    // Requires: !dataSet.empty()
     public T getMax() {
         // stub
         return null;
     }
 
+    // Requires: !dataSet.empty()
     public T getMin() {
         // stub
         return null;
     }
 
+    // Requires: !dataSet.empty()
     // Effects: If isSample, returns zero (base value) until size() > 1,
     // then returns calculated standard deviation, else return standard
     // deviation

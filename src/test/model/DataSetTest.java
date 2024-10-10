@@ -339,20 +339,7 @@ public class DataSetTest{
         assertTrue(testLongSampleDataSet.isSample());
         assertFalse(testDoublePopulationDataSet.isSample());
 
-        assertTrue(0.0 == testDoublePopulationDataSet.getMean());
-        assertTrue(0.0 == testDoublePopulationDataSet.getMin());
-        assertTrue(0.0 == testDoublePopulationDataSet.getMax());
-        assertTrue(0.0 == testDoublePopulationDataSet.getMedian());
-        assertTrue(0.0 == testDoublePopulationDataSet.getMode());
-        assertTrue(0.0 == testDoublePopulationDataSet.getStandardDeviation());
         assertTrue(testDoublePopulationDataSet.getData().isEmpty());
-
-        assertTrue(0 == testLongSampleDataSet.getMean());
-        assertTrue(0 == testLongSampleDataSet.getMin());
-        assertTrue(0 == testLongSampleDataSet.getMax());
-        assertTrue(0 == testLongSampleDataSet.getMedian());
-        assertTrue(0 == testLongSampleDataSet.getMode());
-        assertTrue(0 == testLongSampleDataSet.getStandardDeviation());
         assertTrue(testLongSampleDataSet.getData().isEmpty());
     }
 }

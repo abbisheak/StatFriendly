@@ -15,8 +15,8 @@ public class DataSet<T> {
     }
 
     // Modifies: this
-    // Effects: If data != null add to set and recalculate statistical
-    // information, otherwise do nothing;
+    // Effects: If data != null AND !contains(data) add to set and recalculate 
+    // statistical information, otherwise do nothing;
     public void addData(Data<T> data) {
         // stub
     }
@@ -41,7 +41,7 @@ public class DataSet<T> {
     }
 
     // Effects: returns an iterator for the data set
-    public Iterator<T> iterator() {
+    public Iterator<Data<T>> iterator() {
         // stub
         return null;
     }

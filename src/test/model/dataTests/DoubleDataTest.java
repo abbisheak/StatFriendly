@@ -2,10 +2,11 @@ package model.dataTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import model.data.DoubleData;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-
-import model.DoubleData;
 
 public class DoubleDataTest implements DataTest {
     DoubleData testLargeDoubleData;
@@ -36,7 +37,7 @@ public class DoubleDataTest implements DataTest {
     }
 
     @Test
-    public void testCompareDataValueDifferenceInRange(){
+    public void testCompareDataValueDifferenceInRange() {
         assertTrue(testLargeDoubleData.compare(398721321.3389120984));
         assertTrue(testSmallDoubleData.compare(-213.23));
 
@@ -45,7 +46,7 @@ public class DoubleDataTest implements DataTest {
     }
 
     @Test
-    public void testCompareDataValueDifferenceOutOfRange(){
+    public void testCompareDataValueDifferenceOutOfRange() {
         assertTrue(testLargeDoubleData.compare(398721321.3389120984));
         assertTrue(testSmallDoubleData.compare(-213.23));
 
@@ -60,7 +61,7 @@ public class DoubleDataTest implements DataTest {
 
         DoubleData compareLargeDoubleData = new DoubleData(398721321.3389120984);
         DoubleData compareSmallDoubleData = new DoubleData(-213.23);
-        
+
         assertTrue(testLargeDoubleData.compare(compareLargeDoubleData));
         assertTrue(testSmallDoubleData.compare(compareSmallDoubleData));
 
@@ -88,5 +89,5 @@ public class DoubleDataTest implements DataTest {
         assertTrue(398721321.3389120984 == testLargeDoubleData.getData());
         assertTrue(-213.23 == testSmallDoubleData.getData());
     }
-    
+
 }

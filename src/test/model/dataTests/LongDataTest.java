@@ -1,11 +1,12 @@
 package model.dataTests;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import model.LongData;
+import model.data.LongData;
 
 public class LongDataTest implements DataTest {
     LongData testLargeLongData;
@@ -63,5 +64,5 @@ public class LongDataTest implements DataTest {
         assertTrue(30022932132903L == testLargeLongData.getData());
         assertTrue(-32L == testSmallLongData.getData());
     }
-    
+
 }

@@ -1,4 +1,4 @@
-package model;
+package model.data;
 
 // Represents Rational data in a data set
 public class DoubleData implements Data<Double> {
@@ -6,21 +6,21 @@ public class DoubleData implements Data<Double> {
 
     private Double data;
 
-    //Effects: data's value is given value
-    public DoubleData(Double data){
+    // Effects: data's value is given value
+    public DoubleData(Double data) {
         this.data = data;
     }
 
-    //Effects: returns true if given data matches this data
-    //         up to 5 decimal places, false otherwise
+    // Effects: returns true if given data matches this data
+    // up to 5 decimal places, false otherwise
     public Boolean compare(Double data) {
         System.out.println(this.data - data);
         return Math.abs((this.data - data)) < MAX_ACCURACY;
     }
 
-    //Effects: returns true if given data contains the same data
-    //         as this up to a 5 decimal point accuracy, 
-    //         false otherwise
+    // Effects: returns true if given data contains the same data
+    // as this up to a 5 decimal point accuracy,
+    // false otherwise
     public Boolean compare(Data<Double> data) {
         return compare(data.getData());
     }
@@ -32,5 +32,5 @@ public class DoubleData implements Data<Double> {
     public Double getData() {
         return data;
     }
-    
+
 }

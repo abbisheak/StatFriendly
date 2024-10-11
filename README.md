@@ -19,12 +19,6 @@ Statistics has been the start of everything for me, it is the reason why I am cu
 ## User Stories
 * I want to be able to add a data entry to a data set
 * I want to be able to view each data entry of my data set
-* I want to be able to add data sets to a data space
-* I want to be able to view each data set of my data space
-* I want to see which data sets in my data space have a correlation
-* I want to see the outliers of my data set and remove them
 * I want to give a file with my data and have it put into a data set
-* I want to give a folder with my data and have it separated into data sets
-* I want to be able to merge data sets in a data space
-
-Note: Data space is just my interpretation of a bunch of data sets as vectors in a vector space.
+* I want to be able to see how my data's statistics are changed with each data entry
+* I want to be able to see the likelihood of something happening with respect to my data

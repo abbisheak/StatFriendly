@@ -20,5 +20,6 @@ Statistics has been the start of everything for me, it is the reason why I am cu
 * I want to be able to add a data entry to a data set
 * I want to be able to view each data entry of my data set
 * I want to be able to delete and start a new data set
+* I want to be able to compute basic averages for my data set
 * I want to be able to view my data's statistics and see how they are changed with each data entry
-* I want to be able to see the likelihood of something happening with respect to my data
+* I want to be able to see the likelihood of something happening with respect to my data through a confidence interval

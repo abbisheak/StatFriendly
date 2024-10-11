@@ -50,7 +50,7 @@ public class DoubleDataSetTest implements DataSetTest {
     }
 
     @Test
-    public void testaddDataMultipleTimes() {
+    public void testAddDataMultipleTimes() {
         DoubleData dd1 = new DoubleData(90.2);
         DoubleData dd2 = new DoubleData(90.2);
         DoubleData dd3 = new DoubleData(-321.32);
@@ -359,7 +359,7 @@ public class DoubleDataSetTest implements DataSetTest {
 
     @Test
     public void testGetMode() {
-        
+
         assertNull(testDoubleDataSetPopulation.getMode());
         assertNull(testDoubleDataSetSample.getMode());
 
@@ -378,8 +378,8 @@ public class DoubleDataSetTest implements DataSetTest {
         testDoubleDataSetPopulation.addData(dd2);
         testDoubleDataSetSample.addData(dd2);
 
-        assertTrue(-30.8 == testDoubleDataSetPopulation.getMedian());
-        assertTrue(-30.8 == testDoubleDataSetSample.getMedian());
+        assertTrue(-30.8 == testDoubleDataSetPopulation.getMode());
+        assertTrue(-30.8 == testDoubleDataSetSample.getMode());
 
         testDoubleDataSetPopulation.addData(dd3);
         testDoubleDataSetSample.addData(dd3);

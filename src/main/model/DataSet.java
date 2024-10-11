@@ -15,8 +15,8 @@ public abstract class DataSet<T, W> {
     public Double standardDeviation;
 
     // Requires: The generic used for W must be T - W<T>
-    // Effects: creates an empty data set with no elements in it; 
-    // if isSample makes DataSet a sample DataSet, 
+    // Effects: creates an empty data set with no elements in it;
+    // if isSample makes DataSet a sample DataSet,
     // otherwise a population DataSet
     public DataSet(Boolean isSample) {
         dataSet = new HashSet<>();
@@ -48,7 +48,7 @@ public abstract class DataSet<T, W> {
     }
 
     // Modifies: this
-    // Effects: removes all data entries from data set, and sets all 
+    // Effects: removes all data entries from data set, and sets all
     // statistical calculations to null
     public void clear() {
         dataSet.clear();
@@ -130,14 +130,14 @@ public abstract class DataSet<T, W> {
     protected abstract void setMean();
 
     // Modifies: this
-    // Effects: If size() is even, set median to the size()/2 greatest 
-    // element of the set, else set median to the (size()/2 + 1) greatest 
+    // Effects: If size() is even, set median to the size()/2 greatest
+    // element of the set, else set median to the (size()/2 + 1) greatest
     // element of the set
     protected abstract void setMedian();
 
     // Modifies: this
     // Effects: sets mode to the data value with greatest amount of occurences
-    // with a bias towards to the lesser data value, that is, if data values 
+    // with a bias towards to the lesser data value, that is, if data values
     // have equivalent occurences, the lesser data value is chosen
     protected abstract void setMode();
 
@@ -147,12 +147,12 @@ public abstract class DataSet<T, W> {
     protected abstract void setMax(W data);
 
     // Modifies: this
-    // Effects: if data.getData() < min OR min == null, set min to data.getData(), 
+    // Effects: if data.getData() < min OR min == null, set min to data.getData(),
     // otherwise do nothing
     protected abstract void setMin(W data);
 
     // Modifies: this
-    // Effects: if isSample() and size > 1 calculate sample standard deviation, 
-    // else calculate population standard deviation 
+    // Effects: if isSample() and size > 1 calculate sample standard deviation,
+    // else calculate population standard deviation
     protected abstract void setStandardDeviation();
 }

@@ -19,6 +19,6 @@ Statistics has been the start of everything for me, it is the reason why I am cu
 ## User Stories
 * I want to be able to add a data entry to a data set
 * I want to be able to view each data entry of my data set
-* I want to give a file with my data and have it put into a data set
-* I want to be able to see how my data's statistics are changed with each data entry
+* I want to be able to delete and start a new data set
+* I want to be able to view my data's statistics and see how they are changed with each data entry
 * I want to be able to see the likelihood of something happening with respect to my data

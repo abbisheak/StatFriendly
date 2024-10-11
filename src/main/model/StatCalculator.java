@@ -9,38 +9,38 @@ public class StatCalculator {
     public StatCalculator() {
     }
 
-    // Requires: confidenceLevel == 0.95
+    // Requires: confidenceLevel == 0.95 AND size == 30
     // Effects: returns a double containing a lower and upper bound for
     // the confidence interval for a data set with respect to the
     // confidence level
-    public ArrayList<Double> calculateConfidenceInterval(Double confidenceLevel, Boolean isSample, Double data, Double standardDeviation) {
+    public ArrayList<Double> calculateConfidenceInterval(Double confidenceLevel, Double mean, Integer size, Double standardDeviation) {
         // stub
         return null;
     }
 
-    // Requires: confidenceLevel == 0.95
+    // Requires: confidenceLevel == 0.95 AND size == 30
     // Effects: returns true if the given null hypothesis is failed to be
     // rejected, otherwise return false indicating the null hypothesis is
     // rejected
-    public Boolean oneTailLesserHypothesisTest(Double confidenceLevel, Double deviation, Double standardDeviation) {
+    public Boolean oneTailLesserHypothesisTest(Double confidenceLevel, Double deviation, Double standardError, Boolean isSample) {
         // stub
         return null;
     }
 
-    // Requires: confidenceLevel == 0.95
+    // Requires: confidenceLevel == 0.95 AND size == 30
     // Effects: returns true if the given null hypothesis is failed to be
     // rejected, otherwise return false indicating the null hypothesis is
     // rejected
-    public Boolean oneTailGreaterHypothesisTest(Double confidenceLevel, Double deviation, Double standardDeviation) {
+    public Boolean oneTailGreaterHypothesisTest(Double confidenceLevel, Double deviation, Double standardError, Boolean isSample) {
         // stub
         return null;
     }
 
-    // Requires: confidenceLevel == 0.95
+    // Requires: confidenceLevel == 0.95 AND size == 30
     // Effects: returns true if the given null hypothesis is failed to be
     // rejected, otherwise return false indicating the null hypothesis is
     // rejected
-    public Boolean twoTailHypothesisTest(Double confidenceLevel, Double deviation, Double standardDeviation) {
+    public Boolean twoTailHypothesisTest(Double confidenceLevel, Double deviation, Double standardError, Boolean isSample) {
         // stub
         return null;
     }

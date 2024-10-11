@@ -6,12 +6,13 @@ import org.junit.jupiter.api.Test;
 import model.data.DoubleData;
 
 import static org.junit.Assert.assertTrue;
+
+import java.util.Iterator;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
-
-import java.util.HashSet;
 
 public class DoubleDataSetTest implements DataSetTest {
     private static final Double MAX_ACCURACY = 0.00001;
@@ -262,14 +263,17 @@ public class DoubleDataSetTest implements DataSetTest {
         testDoubleDataSetPopulation.addData(dd1);
         testDoubleDataSetSample.addData(dd1);
 
-        assertTrue(testDoubleDataSetPopulation.iterator().hasNext());
-        assertTrue(testDoubleDataSetSample.iterator().hasNext());
+        Iterator<DoubleData> populationIterator = testDoubleDataSetPopulation.iterator();
+        Iterator<DoubleData> sampleIterator = testDoubleDataSetSample.iterator();
 
-        assertEquals(dd1, testDoubleDataSetPopulation.iterator().next());
-        assertEquals(dd1, testDoubleDataSetSample.iterator().next());
+        assertTrue(populationIterator.hasNext());
+        assertTrue(sampleIterator.hasNext());
 
-        assertFalse(testDoubleDataSetPopulation.iterator().hasNext());
-        assertFalse(testDoubleDataSetSample.iterator().hasNext());
+        assertEquals(dd1, populationIterator.next());
+        assertEquals(dd1, sampleIterator.next());
+
+        assertFalse(populationIterator.hasNext());
+        assertFalse(sampleIterator.hasNext());
     }
 
     @Test

@@ -76,14 +76,14 @@ public class StatFriendly {
 
         while (!quit) {
             input = new Scanner(System.in);
-            System.out.println("Enter your data:");
+            System.out.println("\nEnter your data (Must be a number):");
             userDataInput = input.nextDouble();
             userDoubleDataSet.addData(new DoubleData(userDataInput));
 
             input = new Scanner(System.in);
-            System.out.println("Add more data?");
+            System.out.println("Add more data?\n");
             System.out.println("(q) -> No");
-            System.out.println("Enter anything else -> Yes");
+            System.out.println("Enter anything else -> Yes\n");
             userInput = input.next();
             userInput.toLowerCase();
             System.out.println(userInput);
@@ -107,7 +107,7 @@ public class StatFriendly {
             userSelection = input.nextInt();
             optionsDD(userSelection);
 
-            System.out.println("View more?");
+            System.out.println("\nView more?\n");
             System.out.println("(q) -> No");
             System.out.println("Enter anything else -> Yes");
             userInput = input.next();
@@ -122,18 +122,17 @@ public class StatFriendly {
     // Effects: based on user's input view's or add's to data set
     public void optionsDD(int selection) {
         if (selection == 1) {
-            System.out.println(userDoubleDataSet.getMean());
-
+            System.out.println("\nMean:" + userDoubleDataSet.getMean());
         } else if (selection == 2) {
-            System.out.println(userDoubleDataSet.getMedian());
+            System.out.println("\nMedian:" + userDoubleDataSet.getMedian());
         } else if (selection == 3) {
-            System.out.println(userDoubleDataSet.getMode());
+            System.out.println("\nMode:" + userDoubleDataSet.getMode());
         } else if (selection == 4) {
-            System.out.println(userDoubleDataSet.getMax());
+            System.out.println("\nMax:" + userDoubleDataSet.getMax());
         } else if (selection == 5) {
-            System.out.println(userDoubleDataSet.getMin());
+            System.out.println("\nMin:" + userDoubleDataSet.getMin());
         } else if (selection == 6) {
-            System.out.println(userDoubleDataSet.getStandardDeviation());
+            System.out.println("\nStandard Deviation:" + userDoubleDataSet.getStandardDeviation());
         } else if (selection == 7) {
             iterate();
         } else if (selection == 8) {
@@ -141,10 +140,13 @@ public class StatFriendly {
                     userDoubleDataSet.getMean(),
                     userDoubleDataSet.getData().size(), userDoubleDataSet.getStandardDeviation());
             System.out
-                    .println("With a 95% level the range is [" + confidenceLevel.get(0) + confidenceLevel.get(1) + "]");
+                    .println("Confidence Interval:[" + confidenceLevel.get(0) + "," + confidenceLevel.get(1) + "]");
         }
     }
 
+    // Modifies: this
+    // Effects: User can either add an element to the data set or
+    // view each element of their data set
     public void iterate() {
         HashSet<DoubleData> datas = userDoubleDataSet.getData();
 
@@ -172,7 +174,7 @@ public class StatFriendly {
 
     private void displayMenu() {
         System.out.println("Welcome to StatFriendly!");
-        System.out.println("\nSelect from:");
+        System.out.println("\nSelect from:\n");
         System.out.println("(y) -> Start statistical analysis");
         System.out.println("(q) -> Quit");
     }
@@ -195,14 +197,15 @@ public class StatFriendly {
         System.out.println("(5) -> Min");
         System.out.println("(6) -> Standard Deviation");
         System.out.println("(7) -> View/Add Inputted Data");
-        System.out.println("(8) -> Confidence Interval");
-        System.out.println("Anything else to start a new data set or quit");
+        System.out.println("(8) -> Confidence Interval (Only accurate when 30 inputs are given)");
+        System.out.println("(0) -> Quit and/or make a new data set");
     }
 
     public void iterateMenu() {
+        System.out.println("Choose what you would like to do with your data set:\n");
         System.out.println("Select one of the options:");
         System.out.println("(1) -> Add Element");
         System.out.println("(2) -> View all elements in data set");
-        System.out.println("Anything else to exit");
+        System.out.println("Enter anything else to exit\n");
     }
 }

@@ -1,18 +1,19 @@
-package model;
+package model.dataset;
 
 import java.util.HashSet;
 import java.util.Iterator;
 
 // Represents a data set for a specific concept
 public abstract class DataSet<T, W> {
-    public HashSet<W> dataSet;
-    public Boolean isSample;
-    public Double mean;
-    public T median;
-    public T mode;
-    public T max;
-    public T min;
-    public Double standardDeviation;
+
+    protected HashSet<W> dataSet;
+    protected Boolean isSample;
+    protected Double mean;
+    protected T median;
+    protected T mode;
+    protected T max;
+    protected T min;
+    protected Double standardDeviation;
 
     // Requires: The generic used for W must be T - W<T>
     // Effects: creates an empty data set with no elements in it;

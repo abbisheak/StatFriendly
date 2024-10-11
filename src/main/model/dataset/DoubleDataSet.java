@@ -1,4 +1,4 @@
-package model;
+package model.dataset;
 
 import java.util.Iterator;
 
@@ -7,6 +7,8 @@ import java.util.Collections;
 
 import model.data.DoubleData;
 
+// Represents a data set for a specific concept quantified with
+// rational numbers
 public class DoubleDataSet extends DataSet<Double, DoubleData> {
 
     // Effects: creates an empty data set with no elements in it;
@@ -105,15 +107,15 @@ public class DoubleDataSet extends DataSet<Double, DoubleData> {
     // Effects: sorts data to be in increasing order in a list and returns that
     // list
     private ArrayList<Double> sortedData(Iterator<DoubleData> data) {
-        ArrayList<Double> DataList = new ArrayList<>();
+        ArrayList<Double> dataList = new ArrayList<>();
 
         while (data.hasNext()) {
-            DataList.add(data.next().getData());
+            dataList.add(data.next().getData());
         }
 
-        Collections.sort(DataList);
+        Collections.sort(dataList);
 
-        return DataList;
+        return dataList;
     }
 
 }

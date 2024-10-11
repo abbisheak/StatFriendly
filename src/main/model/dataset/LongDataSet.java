@@ -1,10 +1,12 @@
-package model;
+package model.dataset;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import model.data.LongData;
 
+// Represents a data set for a specific concept quantified with
+// integers 
 public class LongDataSet extends DataSet<Long, LongData> {
 
     // Effects: creates an empty data set with no elements in it;
@@ -103,15 +105,15 @@ public class LongDataSet extends DataSet<Long, LongData> {
     // Effects: sorts data to be in increasing order in a list and returns that
     // list
     private ArrayList<Long> sortedData(Iterator<LongData> data) {
-        ArrayList<Long> DataList = new ArrayList<>();
+        ArrayList<Long> dataList = new ArrayList<>();
 
         while (data.hasNext()) {
-            DataList.add(data.next().getData());
+            dataList.add(data.next().getData());
         }
 
-        Collections.sort(DataList);
+        Collections.sort(dataList);
 
-        return DataList;
+        return dataList;
     }
 
 }

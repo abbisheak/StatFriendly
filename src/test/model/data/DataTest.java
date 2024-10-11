@@ -1,4 +1,4 @@
-package model.dataTests;
+package model.data;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;

@@ -54,6 +54,8 @@ public class testStatCalculator {
         assertFalse(testStatCalculator.twoTailHypothesisTest(0.95, 13.8, (1.82 / Math.sqrt(30)), false));
         assertFalse(testStatCalculator.twoTailHypothesisTest(0.95, 8.8, (5.2 / Math.sqrt(30)), true));
         assertTrue(testStatCalculator.twoTailHypothesisTest(0.95, 1.4, (7.82 / Math.sqrt(30)), false));
+        assertFalse(testStatCalculator.twoTailHypothesisTest(0.95, 200.3, (7.82 / Math.sqrt(30)), false));
+        assertFalse(testStatCalculator.twoTailHypothesisTest(0.95, -200.3, (7.82 / Math.sqrt(30)), false));
         assertTrue(testStatCalculator.twoTailHypothesisTest(0.95, 1.0, (10.3 / Math.sqrt(30)), true));
     }
 }

@@ -79,7 +79,6 @@ public class StatFriendly {
             System.out.println("\nEnter your data (Must be a number):");
             userDataInput = input.nextDouble();
             userDoubleDataSet.addData(new DoubleData(userDataInput));
-
             input = new Scanner(System.in);
             System.out.println("Add more data?\n");
             System.out.println("(q) -> No");
@@ -91,7 +90,6 @@ public class StatFriendly {
                 quit = true;
             }
         }
-
         analyzeDataDD();
     }
 
@@ -172,6 +170,7 @@ public class StatFriendly {
         userDoubleDataSet.addData(new DoubleData(input.nextDouble()));
     }
 
+    // Effects: Asks user whether they would like to use the app
     private void displayMenu() {
         System.out.println("Welcome to StatFriendly!");
         System.out.println("\nSelect from:\n");
@@ -179,6 +178,7 @@ public class StatFriendly {
         System.out.println("(q) -> Quit");
     }
 
+    // Effects: Asks user to specify the data they would be working with, or quit
     private void displaySelection() {
         System.out.println("What type of data would you be working with?");
         System.out.println("\nSelect from:");
@@ -187,6 +187,7 @@ public class StatFriendly {
         System.out.println("(q)  -> Quit");
     }
 
+    // Effects: Asks user what they would like to do with their processed data
     private void displayInformationOptions() {
         System.out.println("Choose what information you would like to look at for your data:");
         System.out.println("\nSelect from:");
@@ -201,6 +202,8 @@ public class StatFriendly {
         System.out.println("(0) -> Quit and/or make a new data set");
     }
 
+    // Effects: Asks user whether they would like to view their inputs or
+    // add an input to the data set
     public void iterateMenu() {
         System.out.println("Choose what you would like to do with your data set:\n");
         System.out.println("Select one of the options:");

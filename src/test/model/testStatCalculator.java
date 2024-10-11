@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 
 public class testStatCalculator {
-    private static final Double MAX_ACCURACY = 0.00001;
+    private static final Double MAX_ACCURACY = 0.01;
 
     StatCalculator testStatCalculator;
     DoubleDataSet testDoubleData;

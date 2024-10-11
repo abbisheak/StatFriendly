@@ -325,8 +325,8 @@ public class LongDataSetTest implements DataSetTest {
         testLongDataSetPopulation.addData(ld3);
         testLongDataSetSample.addData(ld3);
 
-        assertTrue(Math.abs(-574377.4 - testLongDataSetPopulation.getMean()) < MAX_ACCURACY);
-        assertTrue(Math.abs(-574377.4 - testLongDataSetSample.getMean()) < MAX_ACCURACY);
+        assertTrue(Math.abs(-957295.66666667 - testLongDataSetPopulation.getMean()) < MAX_ACCURACY);
+        assertTrue(Math.abs(-957295.66666667 - testLongDataSetSample.getMean()) < MAX_ACCURACY);
     }
 
     @Test

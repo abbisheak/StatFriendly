@@ -36,7 +36,7 @@ public class testStatCalculator {
     @Test
     public void testOneTailLesserHypothesisTest(){
         assertFalse(testStatCalculator.oneTailLesserHypothesisTest(0.95, -1.9, (3.5 / Math.sqrt(30)), false));
-        assertFalse(testStatCalculator.oneTailLesserHypothesisTest(0.95, 1.98, (1.8 / Math.sqrt(30)), true));
+        assertFalse(testStatCalculator.oneTailLesserHypothesisTest(0.95, -9.8, (1.8 / Math.sqrt(30)), true));
         assertTrue(testStatCalculator.oneTailLesserHypothesisTest(0.95, -0.1, (3.5 / Math.sqrt(30)), false));
         assertTrue(testStatCalculator.oneTailLesserHypothesisTest(0.95, 1.98, (1.8 / Math.sqrt(30)), true));
     }
@@ -53,7 +53,7 @@ public class testStatCalculator {
     public void testTwoTailHypothesisTest(){
         assertFalse(testStatCalculator.twoTailHypothesisTest(0.95, 13.8, (1.82 / Math.sqrt(30)), false));
         assertFalse(testStatCalculator.twoTailHypothesisTest(0.95, 8.8, (5.2 / Math.sqrt(30)), true));
-        assertTrue(testStatCalculator.twoTailHypothesisTest(0.95, 8.0, (1.82 / Math.sqrt(30)), false));
+        assertTrue(testStatCalculator.twoTailHypothesisTest(0.95, 1.4, (7.82 / Math.sqrt(30)), false));
         assertTrue(testStatCalculator.twoTailHypothesisTest(0.95, 1.0, (10.3 / Math.sqrt(30)), true));
     }
 }

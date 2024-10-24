@@ -23,3 +23,5 @@ Statistics has been the start of everything for me, it is the reason why I am cu
 * I want to be able to compute basic averages for my data set
 * I want to be able to view my data's statistics and see how they are changed with each data entry
 * I want to be able to see the likelihood of something happening with respect to my data through a confidence interval
+* I want to be able to save my data entries in my Data Space into a file, if I so do choose
+* I want to be given the option to load my Data Space from a file

@@ -13,6 +13,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.io.IOException;
 import java.util.List;
 
+// Referenced from the JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+
 public class JsonReaderTest extends JsonTest {
     DoubleDataSet testDds1;
     DoubleDataSet testDds2;

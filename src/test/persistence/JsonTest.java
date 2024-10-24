@@ -10,7 +10,7 @@ import model.dataspace.DataVector;
 
 public class JsonTest {
     
-    protected void checkThingy(String name, DoubleDataSet dataSet, DataVector dataVector) {
+    protected void checkDataVector(String name, DoubleDataSet dataSet, DataVector dataVector) {
         assertEquals(name, dataVector.getName());
         assertEquals(dataSet, dataVector.getDataSet());
     }

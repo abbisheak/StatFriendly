@@ -1,0 +1,32 @@
+{
+    "Data Vectors": [
+        {
+            "name": "Snowy Days",
+            "data set": {
+                "entry1": "2.0",
+                "entry2": "4.0"
+            }
+        },
+        {
+            "name": "Rainy Days",
+            "data set": {
+                "entry1": "1.0",
+                "entry2": "2.0",
+                "entry3": "3.0",
+                "entry4": "4.0",
+                "entry5": "5.0"
+            }
+        },
+        {
+            "name": "Sunny Days",
+            "data set": {
+                "entry1": "3.0",
+                "entry2": "6.0",
+                "entry3": "9.0",
+                "entry4": "12.0",
+                "entry5": "15.0"
+            }
+        }
+    ],
+    "name": "Data space 2"
+}

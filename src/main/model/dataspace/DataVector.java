@@ -1,36 +1,49 @@
 package model.dataspace;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.HashSet;
+
+import model.data.DoubleData;
 import model.dataset.DoubleDataSet;
 
 // Referenced from the JsonSerialization Demo
 // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 public class DataVector {
+    private String name;
+    private DoubleDataSet dataSet;
     
-    public DataVector(String id, DoubleDataSet dataSet){
-        // stub
+    public DataVector(String name, DoubleDataSet dataSet){
+        this.name = name;
+        this.dataSet = dataSet;
     }
 
     public String getName() {
-        // stub
-        return null;
+        return name;
     }
 
     public DoubleDataSet getDataSet() {
-        // stub
-        return null;
-    }
-
-    // EFFECTS: returns string representation of this data vector
-    public String toString() {
-        return null;
+        return dataSet;
     }
 
     // EFFECTS: returns this data vector as a JSON object
     public JSONObject toJson() {
-        // stub
-        return null;
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("data set", dataSetToJson());
+        return json;
+    }
+
+    // EFFECTS: returns this data set as a JSON Array
+    private JSONArray dataSetToJson(){
+        JSONArray jsonArray = new JSONArray();
+        HashSet<DoubleData> dataList = dataSet.getData();
+
+        for(DoubleData data : dataList){
+            jsonArray.put(data.getData());
+        }
+        return jsonArray;
     }
 }

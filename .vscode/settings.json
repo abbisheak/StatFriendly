@@ -5,7 +5,8 @@
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/**/*.jar",
+        "/Users/daddy/Downloads/commons-math-4.0-beta1/**/*.jar"
     ],
     "java.checkstyle.configuration": "${workspaceFolder}/checkstyle.xml",
     "java.checkstyle.version": "10.2"

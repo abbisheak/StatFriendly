@@ -26,19 +26,19 @@ public class DataSpace implements Writable{
     }
 
     // MODIFIES: this
-    // EFFECTS: adds data to data space
-    public void addData(DoubleData data){
+    // EFFECTS: adds data vector to data space
+    public void addDataVector(DataVector data){
         //stub
     }
 
-    // EFFECTS: returns the data set of this data space
-    public DoubleDataSet getDataSet() {
+    // EFFECTS: returns a modifiable list data vectors in this data space
+    public List<DataVector> getDataVectors() {
         //stub
         return null;
     }
 
-    // EFFECTS: returns number of data entries in this data space
-    public int numData() {
+    // EFFECTS: returns number of data vectors in this data space
+    public int numDataVectors() {
         //stub
         return -1;
     }
@@ -49,8 +49,8 @@ public class DataSpace implements Writable{
         return null;
     }
 
-    // EFFECTS: returns data entries in this data space as a JSON array
-    private JSONArray dataToJson() {
+    // EFFECTS: returns data vectors in this data space as a JSON array
+    private JSONArray dataVectorsToJson() {
         //stub
         return null;
     }

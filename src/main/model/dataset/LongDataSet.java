@@ -9,15 +9,15 @@ import model.data.LongData;
 // integers 
 public class LongDataSet extends DataSet<Long, LongData> {
 
-    // Effects: creates an empty data set with no elements in it;
+    // EFFECTS: creates an empty data set with no elements in it;
     // if isSample makes DataSet a sample DataSet,
     // otherwise a population DataSet
     public LongDataSet(Boolean isSample) {
         super(isSample);
     }
 
-    // Modifies: this
-    // Effects: recalculates and sets the value of mean based on dataSet
+    // MODIFIES: this
+    // EFFECTS: recalculates and sets the value of mean based on dataSet
     // state
     protected void setMean() {
         Double sum = 0.0;
@@ -29,8 +29,8 @@ public class LongDataSet extends DataSet<Long, LongData> {
         mean = sum / dataSet.size();
     }
 
-    // Modifies: this
-    // Effects: If size() is even, set median to the size()/2 greatest
+    // MODIFIES: this
+    // EFFECTS: If size() is even, set median to the size()/2 greatest
     // element of the set, else set median to the (size()/2 + 1) greatest
     // element of the set
     protected void setMedian() {
@@ -47,8 +47,8 @@ public class LongDataSet extends DataSet<Long, LongData> {
 
     }
 
-    // Modifies: this
-    // Effects: sets mode to the data value with greatest amount of occurences
+    // MODIFIES: this
+    // EFFECTS: sets mode to the data value with greatest amount of occurences
     // with a bias towards to the lesser data value, that is, if data values
     // have equivalent occurences, the lesser data value is chosen
     protected void setMode() {
@@ -66,8 +66,8 @@ public class LongDataSet extends DataSet<Long, LongData> {
         }
     }
 
-    // Modifies: this
-    // Effects: if data.getData() > max OR max == null, set max to data.getData(),
+    // MODIFIES: this
+    // EFFECTS: if data.getData() > max OR max == null, set max to data.getData(),
     // otherwise do nothing
     protected void setMax(LongData data) {
         if (max == null || data.getData() > max) {
@@ -75,8 +75,8 @@ public class LongDataSet extends DataSet<Long, LongData> {
         }
     }
 
-    // Modifies: this
-    // Effects: if data.getData() < min OR min == null, set min to data.getData(),
+    // MODIFIES: this
+    // EFFECTS: if data.getData() < min OR min == null, set min to data.getData(),
     // otherwise do nothing
     protected void setMin(LongData data) {
         if (min == null || data.getData() < min) {
@@ -84,8 +84,8 @@ public class LongDataSet extends DataSet<Long, LongData> {
         }
     }
 
-    // Modifies: this
-    // Effects: if isSample() and size > 1 calculate sample standard deviation,
+    // MODIFIES: this
+    // EFFECTS: if isSample() and size > 1 calculate sample standard deviation,
     // else calculate population standard deviation
     protected void setStandardDeviation() {
         Double differenceSummation = 0.0;
@@ -102,7 +102,7 @@ public class LongDataSet extends DataSet<Long, LongData> {
         }
     }
 
-    // Effects: sorts data to be in increasing order in a list and returns that
+    // EFFECTS: sorts data to be in increasing order in a list and returns that
     // list
     private ArrayList<Long> sortedData(Iterator<LongData> data) {
         ArrayList<Long> dataList = new ArrayList<>();

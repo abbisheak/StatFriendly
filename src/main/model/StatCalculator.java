@@ -13,8 +13,7 @@ public class StatCalculator {
     public StatCalculator() {
     }
 
-    // Requires: confidence == 0.95 AND size == 30
-    // Effects: returns a double containing a lower and upper bound for
+    // EFFECTS: returns a double containing a lower and upper bound for
     // the confidence interval for a data set with respect to the
     // confidence level
     public ArrayList<Double> calculateConfidenceInterval(Double confidence, Double mean, Integer size,
@@ -30,8 +29,8 @@ public class StatCalculator {
         return confidenceInterval;
     }
 
-    // Requires: confidence == 0.95 AND size == 30
-    // Effects: returns true if the given deviation fails to reject the null
+    // REQUIRES: confidence == 0.95 AND size == 30
+    // EFFECTS: returns true if the given deviation fails to reject the null
     // hypothesis is failed to be rejected, otherwise return false indicating
     // the null hypothesis is rejected. If isSample use sample method, else
     // use population method
@@ -49,8 +48,8 @@ public class StatCalculator {
         return testStatistic > criticalValue;
     }
 
-    // Requires: confidence == 0.95 AND size == 30
-    // Effects: returns true if the given deviation fails to reject the null
+    // REQUIRES: confidence == 0.95 AND size == 30
+    // EFFECTS: returns true if the given deviation fails to reject the null
     // hypothesis is failed to be rejected, otherwise return false indicating
     // the null hypothesis is rejected. If isSample use sample method, else
     // use population method
@@ -68,8 +67,8 @@ public class StatCalculator {
         return testStatistic < criticalValue;
     }
 
-    // Requires: confidence == 0.95 AND size == 30
-    // Effects: returns true if the given deviation fails to reject the null
+    // REQUIRES: confidence == 0.95 AND size == 30
+    // EFFECTS: returns true if the given deviation fails to reject the null
     // hypothesis is failed to be rejected, otherwise return false indicating
     // the null hypothesis is rejected. If isSample use sample method, else
     // use population method
@@ -78,4 +77,5 @@ public class StatCalculator {
         Double testStatistic = deviation / standardError;
         return testStatistic > -criticalValue && testStatistic < criticalValue;
     }
+
 }

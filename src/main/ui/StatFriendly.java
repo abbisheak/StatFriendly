@@ -14,13 +14,13 @@ public class StatFriendly {
     private DoubleDataSet userDoubleDataSet;
     private Scanner input = new Scanner(System.in);
 
-    // Effects: runs the StatFriendly app
+    // EFFECTS: runs the StatFriendly app
     public StatFriendly() {
         runStatFriendly();
     }
 
-    // Modifies: this
-    // Effects: processes whether the user would like to use the app
+    // MODIFIES: this
+    // EFFECTS: processes whether the user would like to use the app
     private void runStatFriendly() {
         Boolean quit = false;
         String userInput = null;
@@ -42,8 +42,8 @@ public class StatFriendly {
         System.out.println("Goodbye!");
     }
 
-    // Modifies: this
-    // Effects: initializes data sets depending on whether user has
+    // MODIFIES: this
+    // EFFECTS: initializes data sets depending on whether user has
     // sample data or population data
     private void init() {
         Boolean quit = false;
@@ -66,9 +66,9 @@ public class StatFriendly {
         }
     }
 
-    // Modifies: this
-    // Effects: Inputs user's data into data sets
-    public void continuousDataAnalysis(Boolean isSample) {
+    // MODIFIES: this
+    // EFFECTS: Inputs user's data into data sets
+    private void continuousDataAnalysis(Boolean isSample) {
         Boolean quit = false;
         Double userDataInput = null;
         String userInput = null;
@@ -93,10 +93,10 @@ public class StatFriendly {
         analyzeDataDD();
     }
 
-    // Modifies: this
-    // Effects: allows user to view information about their data set
+    // MODIFIES: this
+    // EFFECTS: allows user to view information about their data set
     // and/or add elements to their data set
-    public void analyzeDataDD() {
+    private void analyzeDataDD() {
         Boolean quit = false;
         String userInput = null;
         int userSelection;
@@ -116,9 +116,9 @@ public class StatFriendly {
         }
     }
 
-    // Modifies: this
-    // Effects: based on user's input view's or add's to data set
-    public void optionsDD(int selection) {
+    // MODIFIES: this
+    // EFFECTS: based on user's input view's or add's to data set
+    private void optionsDD(int selection) {
         if (selection == 1) {
             System.out.println("\nMean:" + userDoubleDataSet.getMean());
         } else if (selection == 2) {
@@ -142,10 +142,10 @@ public class StatFriendly {
         }
     }
 
-    // Modifies: this
-    // Effects: User can either add an element to the data set or
+    // MODIFIES: this
+    // EFFECTS: User can either add an element to the data set or
     // view each element of their data set
-    public void iterate() {
+    private void iterate() {
         HashSet<DoubleData> datas = userDoubleDataSet.getData();
 
         iterateMenu();
@@ -162,15 +162,15 @@ public class StatFriendly {
         }
     }
 
-    // Modifies: this
-    // Effects: adds user's input to data set
-    public void addElement() {
+    // MODIFIES: this
+    // EFFECTS: adds user's input to data set
+    private void addElement() {
         System.out.println("Enter the value of the data you would like to add:");
         input = new Scanner(System.in);
         userDoubleDataSet.addData(new DoubleData(input.nextDouble()));
     }
 
-    // Effects: Asks user whether they would like to use the app
+    // EFFECTS: Asks user whether they would like to use the app
     private void displayMenu() {
         System.out.println("Welcome to StatFriendly!");
         System.out.println("\nSelect from:\n");
@@ -178,7 +178,7 @@ public class StatFriendly {
         System.out.println("(q) -> Quit");
     }
 
-    // Effects: Asks user to specify the data they would be working with, or quit
+    // EFFECTS: Asks user to specify the data they would be working with, or quit
     private void displaySelection() {
         System.out.println("What type of data would you be working with?");
         System.out.println("\nSelect from:");
@@ -187,7 +187,7 @@ public class StatFriendly {
         System.out.println("(q)  -> Quit");
     }
 
-    // Effects: Asks user what they would like to do with their processed data
+    // EFFECTS: Asks user what they would like to do with their processed data
     private void displayInformationOptions() {
         System.out.println("Choose what information you would like to look at for your data:");
         System.out.println("\nSelect from:");
@@ -202,9 +202,9 @@ public class StatFriendly {
         System.out.println("(0) -> Quit and/or make a new data set");
     }
 
-    // Effects: Asks user whether they would like to view their inputs or
+    // EFFECTS: Asks user whether they would like to view their inputs or
     // add an input to the data set
-    public void iterateMenu() {
+    private void iterateMenu() {
         System.out.println("Choose what you would like to do with your data set:\n");
         System.out.println("Select one of the options:");
         System.out.println("(1) -> Add Element");

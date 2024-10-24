@@ -10,20 +10,20 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-public class testStatCalculator {
-    private static final Double MAX_ACCURACY = 0.01;
+public class TestStatCalculator {
+    private static final Double MAX_ACCURACY = 0.001;
 
     StatCalculator testStatCalculator;
     DoubleDataSet testDoubleData;
     LongDataSet testLongData;
 
     @BeforeEach
-    public void runBefore(){
+    public void runBefore() {
         testStatCalculator = new StatCalculator();
     }
 
     @Test
-    public void testCalculateConfidenceInterval(){
+    public void testCalculateConfidenceInterval() {
         ArrayList<Double> doubleCI1 = testStatCalculator.calculateConfidenceInterval(0.95, 20.6, 30, 8.3);
         ArrayList<Double> doubleCI2 = testStatCalculator.calculateConfidenceInterval(0.95, 1.8, 30, 0.32);
 
@@ -34,7 +34,7 @@ public class testStatCalculator {
     }
 
     @Test
-    public void testOneTailLesserHypothesisTest(){
+    public void testOneTailLesserHypothesisTest() {
         assertFalse(testStatCalculator.oneTailLesserHypothesisTest(0.95, -1.9, (3.5 / Math.sqrt(30)), false));
         assertFalse(testStatCalculator.oneTailLesserHypothesisTest(0.95, -9.8, (1.8 / Math.sqrt(30)), true));
         assertTrue(testStatCalculator.oneTailLesserHypothesisTest(0.95, -0.1, (3.5 / Math.sqrt(30)), false));
@@ -42,7 +42,7 @@ public class testStatCalculator {
     }
 
     @Test
-    public void testOneTailGreaterHypothesisTest(){
+    public void testOneTailGreaterHypothesisTest() {
         assertFalse(testStatCalculator.oneTailGreaterHypothesisTest(0.95, 5.44, (10.3 / Math.sqrt(30)), true));
         assertFalse(testStatCalculator.oneTailGreaterHypothesisTest(0.95, 1.98, (1.8 / Math.sqrt(30)), true));
         assertTrue(testStatCalculator.oneTailGreaterHypothesisTest(0.95, 0.7, (3.5 / Math.sqrt(30)), false));
@@ -50,7 +50,7 @@ public class testStatCalculator {
     }
 
     @Test
-    public void testTwoTailHypothesisTest(){
+    public void testTwoTailHypothesisTest() {
         assertFalse(testStatCalculator.twoTailHypothesisTest(0.95, 13.8, (1.82 / Math.sqrt(30)), false));
         assertFalse(testStatCalculator.twoTailHypothesisTest(0.95, 8.8, (5.2 / Math.sqrt(30)), true));
         assertTrue(testStatCalculator.twoTailHypothesisTest(0.95, 1.4, (7.82 / Math.sqrt(30)), false));

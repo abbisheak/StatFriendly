@@ -8,7 +8,10 @@ import java.util.stream.Stream;
 
 import org.json.*;
 
-import model.DataSpace;
+import model.dataspace.DataSpace;
+
+// Referenced from the JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 // Represents a reader that reads a data space from JSON data stored in file
 public class JsonReader {
@@ -29,5 +32,5 @@ public class JsonReader {
     private String readFile(String source) throws IOException {
         return null;
     }
-    
+
 }

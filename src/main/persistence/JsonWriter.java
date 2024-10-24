@@ -2,7 +2,7 @@ package persistence;
 
 import org.json.JSONObject;
 
-import model.DataSpace;
+import model.dataspace.DataSpace;
 
 import java.io.*;
 

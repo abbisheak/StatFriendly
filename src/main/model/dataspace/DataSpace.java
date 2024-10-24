@@ -1,4 +1,4 @@
-package model;
+package model.dataspace;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

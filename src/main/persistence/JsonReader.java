@@ -19,7 +19,7 @@ import model.dataspace.DataVector;
 // Represents a reader that reads a data space from JSON data stored in file
 public class JsonReader {
     private String source;
-    
+
     // EFFECTS: constructs reader to read from source file
     public JsonReader(String source) {
         this.source = source;
@@ -33,7 +33,6 @@ public class JsonReader {
         return parseDataSpace(jsonObject);
     }
 
- 
     // EFFECTS: reads source file as string and returns it
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
@@ -73,12 +72,11 @@ public class JsonReader {
     }
 
     // EFFECTS: parses data set from JSON Array and returns data set
-    private DoubleDataSet convertJsonArrayToDataSet(JSONArray jsonArray){
+    private DoubleDataSet convertJsonArrayToDataSet(JSONArray jsonArray) {
         DoubleDataSet doubleDataSet = new DoubleDataSet(false);
-        for(int i = 0; i < jsonArray.length(); i++){
+        for (int i = 0; i < jsonArray.length(); i++) {
             doubleDataSet.addData(new DoubleData(jsonArray.getDouble(i)));
         }
         return doubleDataSet;
     }
 }
-

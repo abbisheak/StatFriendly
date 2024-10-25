@@ -14,8 +14,9 @@ import model.dataset.DoubleDataSet;
 public class DataVector {
     private String name;
     private DoubleDataSet dataSet;
-    
-    public DataVector(String name, DoubleDataSet dataSet){
+
+    // EFFECTS: constructs a data vector with given name and value of given data set
+    public DataVector(String name, DoubleDataSet dataSet) {
         this.name = name;
         this.dataSet = dataSet;
     }
@@ -37,11 +38,11 @@ public class DataVector {
     }
 
     // EFFECTS: returns this data set as a JSON Array
-    private JSONArray dataSetToJson(){
+    private JSONArray dataSetToJson() {
         JSONArray jsonArray = new JSONArray();
         HashSet<DoubleData> dataList = dataSet.getData();
 
-        for(DoubleData data : dataList){
+        for (DoubleData data : dataList) {
             jsonArray.put(data.getData());
         }
         return jsonArray;

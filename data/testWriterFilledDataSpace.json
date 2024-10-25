@@ -1,0 +1,34 @@
+{
+    "data vectors": [
+        {
+            "data set": [
+                1,
+                4,
+                0,
+                2,
+                3
+            ],
+            "name": "population"
+        },
+        {
+            "data set": [
+                2,
+                0
+            ],
+            "name": "fires"
+        },
+        {
+            "data set": [
+                9,
+                15,
+                18,
+                6,
+                0,
+                12,
+                3
+            ],
+            "name": "floods"
+        }
+    ],
+    "name": "Data space 4"
+}

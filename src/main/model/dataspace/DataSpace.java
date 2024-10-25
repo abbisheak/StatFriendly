@@ -4,55 +4,61 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.ArrayList;
 
-import model.data.DoubleData;
-import model.dataset.DoubleDataSet;
 import persistence.Writable;
 
 // Referenced from the JsonSerialization Demo
 // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 // Represents a data space having a data set
-public class DataSpace implements Writable{
+public class DataSpace implements Writable {
+    private String name;
+    private List<DataVector> dataVectors;
 
-    // EFFECTS: constructs a data space with an associating name and a empty data set
-    public DataSpace(String name){
-    //stub
+    // EFFECTS: constructs a data space with an associating name and containing no
+    // data vectors
+    public DataSpace(String name) {
+        this.name = name;
+        dataVectors = new ArrayList<>();
     }
 
-    public String getName(){
-        //stub
-        return null;
+    public String getName() {
+        return name;
     }
 
     // MODIFIES: this
     // EFFECTS: adds data vector to data space
-    public void addDataVector(DataVector data){
-        //stub
+    public void addDataVector(DataVector dataVector) {
+        dataVectors.add(dataVector);
     }
 
     // EFFECTS: returns a modifiable list data vectors in this data space
     public List<DataVector> getDataVectors() {
-        //stub
-        return null;
+        return dataVectors;
     }
 
     // EFFECTS: returns number of data vectors in this data space
     public int numDataVectors() {
-        //stub
-        return -1;
+        return dataVectors.size();
     }
 
     @Override
     public JSONObject toJson() {
-        //stub
-        return null;
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("data vectors", dataVectorsToJson());
+        return json;
     }
 
     // EFFECTS: returns data vectors in this data space as a JSON array
     private JSONArray dataVectorsToJson() {
-        //stub
-        return null;
+        JSONArray jsonArray = new JSONArray();
+
+        for (DataVector dataVector : dataVectors) {
+            jsonArray.put(dataVector.toJson());
+        }
+        return jsonArray;
     }
-    
+
 }

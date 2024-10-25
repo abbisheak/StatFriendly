@@ -15,7 +15,7 @@ import model.dataspace.DataVector;
 // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 public class JsonTest {
-    
+
     protected void checkDataVector(String name, DoubleDataSet dataSet, DataVector dataVector) {
         assertEquals(name, dataVector.getName());
 
@@ -24,17 +24,17 @@ public class JsonTest {
         List<Double> dataNeeded = convertDataToDouble(dataSet.getData());
         List<Double> dataReceived = convertDataToDouble(dataVectorDataSet.getData());
 
-        for(int i = 0; i < dataNeeded.size(); i++){
+        for (int i = 0; i < dataNeeded.size(); i++) {
             assertTrue(dataReceived.contains(dataNeeded.get(i)));
             dataReceived.remove(dataReceived.indexOf(dataNeeded.get(i)));
         }
         assertTrue(dataReceived.isEmpty());
     }
 
-    private List<Double> convertDataToDouble(HashSet<DoubleData> dataSet){
+    private List<Double> convertDataToDouble(HashSet<DoubleData> dataSet) {
         List<Double> conversion = new ArrayList<>();
 
-        for(DoubleData data : dataSet){
+        for (DoubleData data : dataSet) {
             conversion.add(data.getData());
         }
 

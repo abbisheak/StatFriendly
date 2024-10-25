@@ -13,19 +13,19 @@ public class TestDataVector {
     private DoubleDataSet testDds;
 
     @BeforeEach
-    public void runBefore(){
+    public void runBefore() {
         testDds = new DoubleDataSet(true);
 
-        for(int i = 0; i < 7; i++){
+        for (int i = 0; i < 7; i++) {
             testDds.addData(new DoubleData(i * 1.0));
         }
 
         testDV = new DataVector("A", testDds);
-        
+
     }
 
     @Test
-    public void testConstructor(){
+    public void testConstructor() {
         assertEquals("A", testDV.getName());
         assertEquals(testDds, testDV.getDataSet());
     }

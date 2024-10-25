@@ -150,6 +150,7 @@ public class DoubleDataSetTest implements DataSetTest {
         assertTrue(0 == testDoubleDataSetSample.size());
     }
 
+    @SuppressWarnings("methodlength")
     @Test
     public void testRemoveDataNotInSet() {
         assertTrue(0 == testDoubleDataSetPopulation.size());
@@ -201,57 +202,21 @@ public class DoubleDataSetTest implements DataSetTest {
 
     @Test
     public void testClear() {
-        assertTrue(testDoubleDataSetPopulation.getData().isEmpty());
-        assertNull(testDoubleDataSetPopulation.getMax());
-        assertNull(testDoubleDataSetPopulation.getMean());
-        assertNull(testDoubleDataSetPopulation.getMedian());
-        assertNull(testDoubleDataSetPopulation.getMin());
-        assertNull(testDoubleDataSetPopulation.getMode());
-        assertNull(testDoubleDataSetPopulation.getStandardDeviation());
-
-        assertTrue(testDoubleDataSetSample.getData().isEmpty());
-        assertNull(testDoubleDataSetSample.getMax());
-        assertNull(testDoubleDataSetSample.getMedian());
-        assertNull(testDoubleDataSetSample.getMin());
-        assertNull(testDoubleDataSetSample.getMode());
-        assertNull(testDoubleDataSetSample.getStandardDeviation());
-
+        checkStatisticsNotCalculated(testDoubleDataSetPopulation);
+        checkStatisticsNotCalculated(testDoubleDataSetSample);
         DoubleData dd1 = new DoubleData(923.1);
 
         testDoubleDataSetPopulation.addData(dd1);
-        assertFalse(testDoubleDataSetPopulation.getData().isEmpty());
-        assertNotEquals(null, testDoubleDataSetPopulation.getMax());
-        assertNotEquals(null, testDoubleDataSetPopulation.getMean());
-        assertNotEquals(null, testDoubleDataSetPopulation.getMedian());
-        assertNotEquals(null, testDoubleDataSetPopulation.getMin());
-        assertNotEquals(null, testDoubleDataSetPopulation.getMode());
-        assertNotEquals(null, testDoubleDataSetPopulation.getStandardDeviation());
+        checkStatisticsCalculated(testDoubleDataSetPopulation);
 
         testDoubleDataSetSample.addData(dd1);
-        assertFalse(testDoubleDataSetSample.getData().isEmpty());
-        assertNotEquals(null, testDoubleDataSetSample.getMax());
-        assertNotEquals(null, testDoubleDataSetSample.getMean());
-        assertNotEquals(null, testDoubleDataSetSample.getMedian());
-        assertNotEquals(null, testDoubleDataSetSample.getMin());
-        assertNotEquals(null, testDoubleDataSetSample.getMode());
-        assertNotEquals(null, testDoubleDataSetSample.getStandardDeviation());
+        checkStatisticsCalculated(testDoubleDataSetSample);
 
         testDoubleDataSetPopulation.clear();
-        assertTrue(testDoubleDataSetPopulation.getData().isEmpty());
-        assertNull(testDoubleDataSetPopulation.getMax());
-        assertNull(testDoubleDataSetPopulation.getMean());
-        assertNull(testDoubleDataSetPopulation.getMedian());
-        assertNull(testDoubleDataSetPopulation.getMin());
-        assertNull(testDoubleDataSetPopulation.getMode());
-        assertNull(testDoubleDataSetPopulation.getStandardDeviation());
+        checkStatisticsNotCalculated(testDoubleDataSetPopulation);
 
         testDoubleDataSetSample.clear();
-        assertTrue(testDoubleDataSetSample.getData().isEmpty());
-        assertNull(testDoubleDataSetSample.getMax());
-        assertNull(testDoubleDataSetSample.getMedian());
-        assertNull(testDoubleDataSetSample.getMin());
-        assertNull(testDoubleDataSetSample.getMode());
-        assertNull(testDoubleDataSetSample.getStandardDeviation());
+        checkStatisticsNotCalculated(testDoubleDataSetSample);
     }
 
     @Test
@@ -357,6 +322,7 @@ public class DoubleDataSetTest implements DataSetTest {
         assertTrue(10.3 == testDoubleDataSetSample.getMedian());
     }
 
+    @SuppressWarnings("methodlength")
     @Test
     public void testGetMode() {
 
@@ -523,4 +489,22 @@ public class DoubleDataSetTest implements DataSetTest {
         assertTrue(testDoubleDataSetSample.getData().contains(dd1));
     }
 
+    private void checkStatisticsNotCalculated(DoubleDataSet testSet) {
+        assertTrue(testSet.getData().isEmpty());
+        assertNull(testSet.getMax());
+        assertNull(testSet.getMedian());
+        assertNull(testSet.getMin());
+        assertNull(testSet.getMode());
+        assertNull(testSet.getStandardDeviation());
+    }
+
+    private void checkStatisticsCalculated(DoubleDataSet testSet) {
+        assertFalse(testSet.getData().isEmpty());
+        assertNotEquals(null, testSet.getMax());
+        assertNotEquals(null, testSet.getMean());
+        assertNotEquals(null, testSet.getMedian());
+        assertNotEquals(null, testSet.getMin());
+        assertNotEquals(null, testSet.getMode());
+        assertNotEquals(null, testSet.getStandardDeviation());
+    }
 }

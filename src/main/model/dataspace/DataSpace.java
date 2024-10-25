@@ -43,6 +43,7 @@ public class DataSpace implements Writable {
         return dataVectors.size();
     }
 
+    // EFFECTS: returns a json object for this data space
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

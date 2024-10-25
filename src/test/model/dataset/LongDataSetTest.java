@@ -150,6 +150,7 @@ public class LongDataSetTest implements DataSetTest {
         assertTrue(0 == testLongDataSetSample.size());
     }
 
+    @SuppressWarnings("methodlength")
     @Test
     public void testRemoveDataNotInSet() {
         assertTrue(0 == testLongDataSetPopulation.size());
@@ -201,57 +202,22 @@ public class LongDataSetTest implements DataSetTest {
 
     @Test
     public void testClear() {
-        assertTrue(testLongDataSetPopulation.getData().isEmpty());
-        assertNull(testLongDataSetPopulation.getMax());
-        assertNull(testLongDataSetPopulation.getMean());
-        assertNull(testLongDataSetPopulation.getMedian());
-        assertNull(testLongDataSetPopulation.getMin());
-        assertNull(testLongDataSetPopulation.getMode());
-        assertNull(testLongDataSetPopulation.getStandardDeviation());
-
-        assertTrue(testLongDataSetSample.getData().isEmpty());
-        assertNull(testLongDataSetSample.getMax());
-        assertNull(testLongDataSetSample.getMedian());
-        assertNull(testLongDataSetSample.getMin());
-        assertNull(testLongDataSetSample.getMode());
-        assertNull(testLongDataSetSample.getStandardDeviation());
+        checkStatisticsNotCalculated(testLongDataSetPopulation);
+        checkStatisticsNotCalculated(testLongDataSetSample);
 
         LongData ld1 = new LongData(232132L);
 
         testLongDataSetPopulation.addData(ld1);
-        assertFalse(testLongDataSetPopulation.getData().isEmpty());
-        assertNotEquals(null, testLongDataSetPopulation.getMax());
-        assertNotEquals(null, testLongDataSetPopulation.getMean());
-        assertNotEquals(null, testLongDataSetPopulation.getMedian());
-        assertNotEquals(null, testLongDataSetPopulation.getMin());
-        assertNotEquals(null, testLongDataSetPopulation.getMode());
-        assertNotEquals(null, testLongDataSetPopulation.getStandardDeviation());
+        checkStatisticsCalculated(testLongDataSetPopulation);
 
         testLongDataSetSample.addData(ld1);
-        assertFalse(testLongDataSetSample.getData().isEmpty());
-        assertNotEquals(null, testLongDataSetSample.getMax());
-        assertNotEquals(null, testLongDataSetSample.getMean());
-        assertNotEquals(null, testLongDataSetSample.getMedian());
-        assertNotEquals(null, testLongDataSetSample.getMin());
-        assertNotEquals(null, testLongDataSetSample.getMode());
-        assertNotEquals(null, testLongDataSetSample.getStandardDeviation());
+        checkStatisticsCalculated(testLongDataSetSample);
 
         testLongDataSetPopulation.clear();
-        assertTrue(testLongDataSetPopulation.getData().isEmpty());
-        assertNull(testLongDataSetPopulation.getMax());
-        assertNull(testLongDataSetPopulation.getMean());
-        assertNull(testLongDataSetPopulation.getMedian());
-        assertNull(testLongDataSetPopulation.getMin());
-        assertNull(testLongDataSetPopulation.getMode());
-        assertNull(testLongDataSetPopulation.getStandardDeviation());
+        checkStatisticsNotCalculated(testLongDataSetPopulation);
 
         testLongDataSetSample.clear();
-        assertTrue(testLongDataSetSample.getData().isEmpty());
-        assertNull(testLongDataSetSample.getMax());
-        assertNull(testLongDataSetSample.getMedian());
-        assertNull(testLongDataSetSample.getMin());
-        assertNull(testLongDataSetSample.getMode());
-        assertNull(testLongDataSetSample.getStandardDeviation());
+        checkStatisticsNotCalculated(testLongDataSetSample);
     }
 
     @Test
@@ -365,6 +331,7 @@ public class LongDataSetTest implements DataSetTest {
         assertTrue(10L == testLongDataSetSample.getMedian());
     }
 
+    @SuppressWarnings("methodlength")
     @Test
     public void testGetMode() {
 
@@ -529,6 +496,25 @@ public class LongDataSetTest implements DataSetTest {
         assertTrue(2 == testLongDataSetSample.getData().size());
         assertTrue(testLongDataSetSample.getData().contains(ld2));
         assertTrue(testLongDataSetSample.getData().contains(ld1));
+    }
+
+    private void checkStatisticsNotCalculated(LongDataSet testSet) {
+        assertTrue(testSet.getData().isEmpty());
+        assertNull(testSet.getMax());
+        assertNull(testSet.getMedian());
+        assertNull(testSet.getMin());
+        assertNull(testSet.getMode());
+        assertNull(testSet.getStandardDeviation());
+    }
+
+    private void checkStatisticsCalculated(LongDataSet testSet) {
+        assertFalse(testSet.getData().isEmpty());
+        assertNotEquals(null, testSet.getMax());
+        assertNotEquals(null, testSet.getMean());
+        assertNotEquals(null, testSet.getMedian());
+        assertNotEquals(null, testSet.getMin());
+        assertNotEquals(null, testSet.getMode());
+        assertNotEquals(null, testSet.getStandardDeviation());
     }
     
 }

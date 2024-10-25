@@ -4,7 +4,6 @@ import model.data.DoubleData;
 import model.dataset.DoubleDataSet;
 import model.dataspace.*;
 
-import org.junit.experimental.categories.Category;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -53,7 +52,7 @@ public class JsonReaderTest extends JsonTest {
             assertEquals("Data space 1", dataSpace.getName());
             List<DataVector> dataVectors = dataSpace.getDataVectors();
             assertEquals(1, dataVectors.size());
-            checkDataVector("Snowy Days", testDds1 , dataVectors.get(0));
+            checkDataVector("Snowy Days", testDds2 , dataVectors.get(0));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
@@ -68,8 +67,8 @@ public class JsonReaderTest extends JsonTest {
             assertEquals("Data space 2", dataSpace.getName());
             List<DataVector> dataVectors = dataSpace.getDataVectors();
             assertEquals(3, dataVectors.size());
-            checkDataVector("Snowy Days", testDds1 , dataVectors.get(0));
-            checkDataVector("Rainy Days", testDds2 , dataVectors.get(1));
+            checkDataVector("Snowy Days", testDds2 , dataVectors.get(0));
+            checkDataVector("Rainy Days", testDds1 , dataVectors.get(1));
             checkDataVector("Sunny Days", testDds3 , dataVectors.get(2));
         } catch (IOException e) {
             fail("Couldn't read from file");
@@ -83,6 +82,7 @@ public class JsonReaderTest extends JsonTest {
         for(int i = 0; i < 7; i++){
             if(i < 2){
                 testDds2.addData(new DoubleData(i*2.0));
+                System.out.println("i");
             }
             if(i < 5){
                 testDds1.addData((new DoubleData(i*1.0)));

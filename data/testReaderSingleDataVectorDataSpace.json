@@ -1,12 +1,11 @@
 {
-    "Data Vectors": [
+    "data vectors": [
         {
             "name": "Snowy Days",
-            "data set": 
-            {
-                "entry1": "2.0",
-                "entry2": "4.0"
-            }
+            "data set": [
+                0.0,
+                2.0
+            ]
         }
     ],
     "name": "Data space 1"

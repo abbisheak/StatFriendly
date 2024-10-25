@@ -14,15 +14,14 @@ import static org.junit.jupiter.api.Assertions.*;
 // Referenced from the JsonSerialization Demo
 // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
-public class JsonWriterTest extends JsonTest{
+public class JsonWriterTest extends JsonTest {
     DoubleDataSet testDds1;
     DoubleDataSet testDds2;
     DoubleDataSet testDds3;
-    
+
     @Test
     void testWriterInvalidFile() {
         try {
-            DataSpace dataSpace = new DataSpace("Data space 3");
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
             fail("IOException was expected");
@@ -66,7 +65,7 @@ public class JsonWriterTest extends JsonTest{
             dataSpace = reader.read();
             assertEquals("Data space 4", dataSpace.getName());
             List<DataVector> dateVectors = dataSpace.getDataVectors();
-            assertEquals(2, dateVectors.size());
+            assertEquals(3, dateVectors.size());
             checkDataVector("population", testDds1, dateVectors.get(0));
             checkDataVector("fires", testDds2, dateVectors.get(1));
             checkDataVector("floods", testDds3, dateVectors.get(2));
@@ -76,18 +75,18 @@ public class JsonWriterTest extends JsonTest{
         }
     }
 
-    private void fillDataSets(){
+    private void fillDataSets() {
         testDds1 = new DoubleDataSet(true);
         testDds2 = new DoubleDataSet(false);
         testDds3 = new DoubleDataSet(true);
-        for(int i = 0; i < 7; i++){
-            if(i < 2){
-                testDds2.addData(new DoubleData(i*2.0));
+        for (int i = 0; i < 7; i++) {
+            if (i < 2) {
+                testDds2.addData(new DoubleData(i * 2.0));
             }
-            if(i < 5){
-                testDds1.addData((new DoubleData(i*1.0)));
+            if (i < 5) {
+                testDds1.addData((new DoubleData(i * 1.0)));
             }
-            testDds3.addData(new DoubleData(i*3.0));
+            testDds3.addData(new DoubleData(i * 3.0));
         }
     }
 }

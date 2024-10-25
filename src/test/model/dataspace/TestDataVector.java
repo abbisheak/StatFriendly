@@ -2,9 +2,7 @@ package model.dataspace;
 
 import model.data.DoubleData;
 import model.dataset.DoubleDataSet;
-import model.dataspace.*;
 
-import org.junit.experimental.categories.Category;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 

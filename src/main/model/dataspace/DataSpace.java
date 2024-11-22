@@ -3,6 +3,8 @@ package model.dataspace;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import model.dataset.DoubleDataSet;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -41,6 +43,12 @@ public class DataSpace implements Writable {
     // EFFECTS: returns number of data vectors in this data space
     public int numDataVectors() {
         return dataVectors.size();
+    }
+
+    // EFFECTS: returns dataSet for a dataVector with corresponding name
+    // in the data space, but if none found return null
+    public DoubleDataSet getDataSet(String name) {
+        return null;
     }
 
     // EFFECTS: returns a json object for this data space

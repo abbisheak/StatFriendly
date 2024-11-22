@@ -7,11 +7,13 @@ import java.util.ArrayList;
 
 import model.dataspace.DataSpace;
 import model.dataspace.DataVector;
+import persistence.JsonWriter;
 import ui.StatFriendly;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 // A window of options that the user can select to choose
 // which window they would like to advance to 
@@ -82,6 +84,12 @@ public class OptionFrame extends JFrame {
         for (DataVector dataVector : dataVectors) {
             dataVectorToButton(dataVector);
         }
+        JButton button1 = new JButton("Add New Data Vector");
+        JButton button2 = new JButton("Save and Quit");
+        JButton button3 = new JButton("Quit");
+        buttons.add(button1);
+        buttons.add(button2);
+        buttons.add(button3);
         return buttons;
     }
 
@@ -89,6 +97,19 @@ public class OptionFrame extends JFrame {
     private void dataVectorToButton(DataVector dataVector) {
         JButton button = new JButton(dataVector.getName());
         buttons.add(button);
+    }
+
+    // MODIFIES: userDataSpace.json
+    // EFFECTS: saves data space state onto a file
+    private void save() {
+        JsonWriter writer = new JsonWriter("./data/userDataSpace.json");
+        try {
+            writer.open();
+        } catch (IOException e) {
+            System.out.println("Something went wrong when saving your work");
+        }
+        writer.write(dataSpace);
+        writer.close();
     }
 
     // Implementation for ActionListener to read a button click
@@ -104,6 +125,8 @@ public class OptionFrame extends JFrame {
         // their desired entries
         // if "Go Back" button clicked then take user to the interface
         // for data sets in data space
+        // if "Save and Quit" then save the user's data and exit the application
+        // if "Quit" then exit the application
         @Override
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
@@ -114,10 +137,19 @@ public class OptionFrame extends JFrame {
                 new DataFrame(dataVector, dataSpace);
                 dispose();
             } else if (command.equals("Add Data")) {
-                // TODO: add implementation to inputframe for recursive inputs
+                new DataInputFrame("Enter Your Numerical Data", dataVector, dataSpace);
+                dispose();
+            } else if (command.equals("Add New Data Vector")) {
+                new DataSetInputFrame("Enter The Name of Your Data Vector:", dataSpace);
+                dispose();
             } else if (command.equals("Go Back")) {
                 new OptionFrame(dataSpace);
                 dispose();
+            } else if (command.equals("Save and Quit")) {
+                save();
+                System.exit(0);
+            } else if (command.equals("Quit")) {
+                System.exit(0);
             }
         }
 

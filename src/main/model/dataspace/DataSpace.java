@@ -45,10 +45,17 @@ public class DataSpace implements Writable {
         return dataVectors.size();
     }
 
-    // EFFECTS: returns dataSet for a dataVector with corresponding name
-    // in the data space, but if none found return null
-    public DoubleDataSet getDataSet(String name) {
-        return null;
+    // EFFECTS: returns dataVector in the data space with corresponding 
+    // name, but if none found return null
+    public DataVector getDataVector(String name) {
+        DataVector dataVector = null;
+        for (DataVector dv : dataVectors) {
+            if (dv.getName().equals(name)) {
+                dataVector = dv;
+            }
+        }
+
+        return dataVector;
     }
 
     // EFFECTS: returns a json object for this data space

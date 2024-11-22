@@ -3,8 +3,6 @@ package model.dataspace;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import model.dataset.DoubleDataSet;
-
 import java.util.List;
 import java.util.ArrayList;
 

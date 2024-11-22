@@ -140,7 +140,7 @@ public class OptionFrame extends JFrame {
                 new DataInputFrame("Enter Your Numerical Data", dataVector, dataSpace);
                 dispose();
             } else if (command.equals("Add New Data Vector")) {
-                new DataSetInputFrame("Enter The Name of Your Data Vector:", dataSpace);
+                new DataVectorInputFrame("Enter The Name of Your Data Vector:", dataSpace);
                 dispose();
             } else if (command.equals("Go Back")) {
                 new OptionFrame(dataSpace);

@@ -1,7 +1,5 @@
 package model.dataspace;
 
-
-import model.data.DoubleData;
 import model.dataset.DoubleDataSet;
 
 import java.util.List;

@@ -14,7 +14,7 @@ import model.dataset.DoubleDataSet;
 import model.dataspace.*;
 
 // A window that displays the statistical information of a given data set
-// along with a scatterplot graph for which the data maps onto
+// along with a box plot diagram for which the data maps onto
 public class DataFrame extends JFrame {
     DataVector dataVector;
     DataSpace dataSpace;

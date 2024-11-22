@@ -27,6 +27,9 @@ public class BoxPlot extends JPanel {
     private Double median;
     private Double scale;
 
+    // MODIFIES: this
+    // EFFECTS: records the data in given data set and records it's data in
+    // increasing order
     public BoxPlot(DoubleDataSet dataSet) {
         this.dataSet = dataSet;
         sortedData = dataSet.sortedData(dataSet.iterator());

@@ -18,6 +18,20 @@ public class DoubleDataSet extends DataSet<Double, DoubleData> {
         super(isSample);
     }
 
+    // EFFECTS: sorts data to be in increasing order in a list and returns that
+    // list
+    public ArrayList<Double> sortedData(Iterator<DoubleData> data) {
+        ArrayList<Double> dataList = new ArrayList<>();
+
+        while (data.hasNext()) {
+            dataList.add(data.next().getData());
+        }
+
+        Collections.sort(dataList);
+
+        return dataList;
+    }
+
     // MODIFIES: this
     // EFFECTS: recalculates and sets the value of mean based on dataSet
     // state
@@ -102,20 +116,6 @@ public class DoubleDataSet extends DataSet<Double, DoubleData> {
             }
             standardDeviation = Math.sqrt(differenceSummation / dataSet.size());
         }
-    }
-
-    // EFFECTS: sorts data to be in increasing order in a list and returns that
-    // list
-    private ArrayList<Double> sortedData(Iterator<DoubleData> data) {
-        ArrayList<Double> dataList = new ArrayList<>();
-
-        while (data.hasNext()) {
-            dataList.add(data.next().getData());
-        }
-
-        Collections.sort(dataList);
-
-        return dataList;
     }
 
 }

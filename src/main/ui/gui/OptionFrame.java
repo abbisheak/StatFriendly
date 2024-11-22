@@ -1,0 +1,126 @@
+package ui.gui;
+
+import javax.swing.*;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import model.dataspace.DataSpace;
+import model.dataspace.DataVector;
+import ui.StatFriendly;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+// A window of options that the user can select to choose
+// which window they would like to advance to 
+public class OptionFrame extends JFrame {
+    private DataSpace dataSpace;
+    private List<DataVector> dataVectors;
+    private DataVector dataVector;
+    private List<JButton> buttons;
+    private JPanel panel;
+    private MouseEvent event = new MouseEvent();
+
+    // MODIFIES: this and dataSpace
+    // EFFECTS: displays a window with buttons corresponding to dataVectors
+    // in the dataSpace for the user to specify which is to be accessed
+    public OptionFrame(DataSpace dataSpace) {
+        this.dataSpace = dataSpace;
+        dataVectors = dataSpace.getDataVectors();
+
+        init();
+        addButtons(dataVectorsToButtons());
+    }
+
+    // MODIFIES: this, dataVector, and dataSpace
+    // EFFECTS: displays a window for the user to choose whether they would
+    // like to view the information in their data vector or add data entries
+    // to the data vector
+    public OptionFrame(DataVector dataVector, DataSpace dataSpace) {
+        this.dataSpace = dataSpace;
+        this.dataVector = dataVector;
+
+        init();
+        buttons.add(new JButton("View Data"));
+        buttons.add(new JButton("Add Data"));
+        buttons.add(new JButton("Go Back"));
+        addButtons(buttons);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: adds stylized buttons to this panel
+    private void addButtons(List<JButton> buttons) {
+        for (JButton button : buttons) {
+            button.setFont(new Font("Impact", Font.PLAIN, 27));
+            button.setForeground(StatFriendly.MAIN_TEXT_COLOUR);
+            button.setFocusPainted(false);
+            button.addActionListener(event);
+            panel.add(button);
+        }
+        add(panel, BorderLayout.CENTER);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets up the panel for this
+    private void init() {
+
+        panel = new JPanel();
+        buttons = new ArrayList<>();
+        setSize(new Dimension(StatFriendly.WIDTH, StatFriendly.HEIGHT));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        panel.setLayout(new GridLayout(3, 3));
+        panel.setBackground(StatFriendly.BACKGROUND_COLOUR);
+        setVisible(true);
+    }
+
+    // EFFECTS: returns corresponding buttons for each data vector in dataSpace
+    private List<JButton> dataVectorsToButtons() {
+        for (DataVector dataVector : dataVectors) {
+            dataVectorToButton(dataVector);
+        }
+        return buttons;
+    }
+
+    // EFFECTS: adds a button into buttons for the given data vector
+    private void dataVectorToButton(DataVector dataVector) {
+        JButton button = new JButton(dataVector.getName());
+        buttons.add(button);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: reads users choice of button clicked,
+    // if dataVector button is clicked then take user to menu to choose to
+    // either view their data vector or add data entries to their data vector
+    // if "View Data" button clicked then take user to the interface
+    // that displays statistical information for data in the data vector
+    // if "Add Data" button clicked then take user to the interface to enter
+    // their desired entries
+    // if "Go Back" button clicked then take user to the interface
+        // for data sets in data space, but if no data space is previously saved
+        // redirect user back to main menu
+    // Implementation for ActionListener to read a button click
+    private class MouseEvent implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String command = e.getActionCommand();
+            if (dataSpace.getNames().contains(command)) {
+                new OptionFrame(dataSpace.getDataVector(command), dataSpace);
+                dispose();
+            } else if (command.equals("View Data")) {
+                // TODO: add data visualization frame class
+            } else if (command.equals("Add Data")) {
+                // TODO: add implementation to inputframe for recursive inputs
+            } else if (command.equals("Go Back")) {
+                new OptionFrame(dataSpace);
+                // TODO: add redirect mechanism
+                dispose();
+            }
+        }
+
+    }
+}

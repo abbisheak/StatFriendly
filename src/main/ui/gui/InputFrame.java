@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 // A GUI that displays a given message and prompts the user
 // for input through a text field
 public class InputFrame extends JFrame {
-    JFrame frame;
     JTextField textField;
     JPanel panel;
     DataSpace dataSpace;
@@ -24,7 +23,6 @@ public class InputFrame extends JFrame {
     public InputFrame(String prompt, DataSpace dataSpace) {
         this.prompt = prompt;
         this.dataSpace = dataSpace;
-        frame = new JFrame();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(new Dimension(StatFriendly.WIDTH, StatFriendly.HEIGHT));
         setLayout(new GridLayout(2, 0));

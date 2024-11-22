@@ -3,33 +3,144 @@ package ui;
 import model.StatCalculator;
 import model.data.DoubleData;
 import model.dataset.DoubleDataSet;
-import model.dataspace.DataSpace;
-import model.dataspace.DataVector;
+import model.dataspace.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+import ui.gui.InputFrame;
+import ui.gui.OptionFrame;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import java.util.HashSet;
 import java.util.List;
 
+
 // Statistical analysis app, made with reference to TellerApp
-public class StatFriendly {
+public class StatFriendly extends JFrame{
+    public static final Color BACKGROUND_COLOUR = Color.LIGHT_GRAY;
+    public static final Color MAIN_TEXT_COLOUR = Color.DARK_GRAY;
+    public static final int WIDTH = 1920;
+    public static final int HEIGHT = 1080;
+
+    private JPanel optionsPanel;
+    private JPanel titlePanel;
+    private MouseEvent event = new MouseEvent();
+    private JButton button1 = new JButton("Create New Data Space");
+    private JButton button2 = new JButton("Load Previous Data Space");
+    private JButton button3 = new JButton("Quit");
+
     private StatCalculator calculator = new StatCalculator();
     private Scanner input = new Scanner(System.in);
     private DataSpace userDataSpace;
 
     // EFFECTS: runs the StatFriendly app
-    public StatFriendly() {
-        runStatFriendly();
+    public StatFriendly() throws IOException {
+        userDataSpace = new JsonReader("./data/userDataSpace.json").read();
+        runStatFriendlyGUI();
+        runStatFriendlyTerminal();
+    }
+
+    // TODO: specifications
+    public void runStatFriendlyGUI(){
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("StatFriendly");
+        setSize(new Dimension(WIDTH, HEIGHT));
+        initOptionsPanel();
+        initTitlePanel();
+
+        pack();
+        setVisible(true);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: initializes segment of main menu window that provides
+    // buttons for the user to create a new data space, load a previous
+    // data space, or exit
+    private void initOptionsPanel() {
+        optionsPanel = new JPanel();
+        optionsPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        optionsPanel.setLayout(new GridLayout(3, 0));
+        optionsPanel.setBackground(BACKGROUND_COLOUR);
+        initButtons();
+        add(optionsPanel, BorderLayout.AFTER_LINE_ENDS);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: initializes buttons for the user to create a new data
+    // space, load a previous data space, or exit
+    private void initButtons() {
+        List<JButton> buttons = new ArrayList<>();
+        buttons.add(button1);
+        buttons.add(button2);
+        buttons.add(button3);
+
+        for (JButton button : buttons) {
+            button.addActionListener(event);
+            optionsPanel.add(button);
+            button.setFont(new Font("Impact", Font.PLAIN, 27));
+            button.setForeground(MAIN_TEXT_COLOUR);
+            button.setFocusPainted(false);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: initializes StatFriendly title on the main menu window
+    private void initTitlePanel() {
+        titlePanel = new JPanel();
+        titlePanel.setBackground(BACKGROUND_COLOUR);
+        titlePanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+
+        JLabel label = new JLabel("StatFriendly");
+        label.setFont(new Font("Impact", Font.PLAIN, 97));
+        label.setForeground(MAIN_TEXT_COLOUR);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+
+        titlePanel.add(label);
+        add(titlePanel, BorderLayout.CENTER);
+    }
+
+    // Implementation for ActionListener to read a button click of the main menu
+    private class MouseEvent implements ActionListener {
+
+        // MODIFIES: this
+        // EFFECTS: reads users choice of button clicked,
+        // if "Create New Data Space" button clicked then take user to name and access
+        // a blank data space
+        // if "Load Previous Data Space" button clicked then take user to the interface
+        // for data sets in data space, but if no data space is previously saved
+        // redirect user back to main menu
+        // if "Quit" then quit the application
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String command = e.getActionCommand();
+            if (command.equals("Create New Data Space")) {
+                new InputFrame("Name Your DataSpace", userDataSpace);
+                dispose();
+            } else if (command.equals("Load Previous Data Space")) {
+                if(userDataSpace.equals(null)){
+                    // throw some error message
+                } else{
+                    new OptionFrame(userDataSpace);
+                    dispose();
+                }
+            } else if (command.equals("Quit")) {
+                System.exit(0);
+            }
+        }
+
     }
 
     // MODIFIES: this
     // EFFECTS: processes whether the user would like to use the app
     // and if they would, start a new file or load from a previous
-    private void runStatFriendly() {
+    private void runStatFriendlyTerminal() {
         Boolean quit = false;
         String userInput = null;
 

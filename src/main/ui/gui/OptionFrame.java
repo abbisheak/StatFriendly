@@ -91,20 +91,19 @@ public class OptionFrame extends JFrame {
         buttons.add(button);
     }
 
-    // MODIFIES: this
-    // EFFECTS: reads users choice of button clicked,
-    // if dataVector button is clicked then take user to menu to choose to
-    // either view their data vector or add data entries to their data vector
-    // if "View Data" button clicked then take user to the interface
-    // that displays statistical information for data in the data vector
-    // if "Add Data" button clicked then take user to the interface to enter
-    // their desired entries
-    // if "Go Back" button clicked then take user to the interface
-        // for data sets in data space, but if no data space is previously saved
-        // redirect user back to main menu
     // Implementation for ActionListener to read a button click
     private class MouseEvent implements ActionListener {
 
+        // MODIFIES: this
+        // EFFECTS: reads users choice of button clicked,
+        // if dataVector button is clicked then take user to menu to choose to
+        // either view their data vector or add data entries to their data vector
+        // if "View Data" button clicked then take user to the interface
+        // that displays statistical information for data in the data vector
+        // if "Add Data" button clicked then take user to the interface to enter
+        // their desired entries
+        // if "Go Back" button clicked then take user to the interface
+        // for data sets in data space
         @Override
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
@@ -112,12 +111,12 @@ public class OptionFrame extends JFrame {
                 new OptionFrame(dataSpace.getDataVector(command), dataSpace);
                 dispose();
             } else if (command.equals("View Data")) {
-                // TODO: add data visualization frame class
+                new DataFrame(dataVector, dataSpace);
+                dispose();
             } else if (command.equals("Add Data")) {
                 // TODO: add implementation to inputframe for recursive inputs
             } else if (command.equals("Go Back")) {
                 new OptionFrame(dataSpace);
-                // TODO: add redirect mechanism
                 dispose();
             }
         }

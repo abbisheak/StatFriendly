@@ -53,7 +53,7 @@ public class DataFrame extends JFrame {
 
     // MODIFIES: this
     // EFFECTS: adds box plot diagram to window
-    private void createBoxPlotPanel(){
+    private void createBoxPlotPanel() {
         boxPlotPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         boxPlotPanel.setPreferredSize(new Dimension(700, 700));
         boxPlotPanel.setBackground(Color.WHITE);
@@ -62,7 +62,7 @@ public class DataFrame extends JFrame {
 
     // MODIFIES: this
     // EFFECTS: adds name of data vector to window
-    private void createTitlePanel(){
+    private void createTitlePanel() {
         titlePanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
         titlePanel.setBackground(StatFriendly.BACKGROUND_COLOUR);
         addTitle();
@@ -71,7 +71,7 @@ public class DataFrame extends JFrame {
 
     // MODIFIES: this
     // EFFECTS: stylizes and adds title to panel for title for window
-    private void addTitle(){
+    private void addTitle() {
         JLabel title = new JLabel(dataVector.getName());
         title.setFont(new Font("Impact", Font.PLAIN, 35));
         title.setForeground(StatFriendly.MAIN_TEXT_COLOUR);

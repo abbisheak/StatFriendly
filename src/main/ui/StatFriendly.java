@@ -21,9 +21,8 @@ import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.List;
 
-
 // Statistical analysis app, made with reference to TellerApp
-public class StatFriendly extends JFrame{
+public class StatFriendly extends JFrame {
     public static final Color BACKGROUND_COLOUR = Color.LIGHT_GRAY;
     public static final Color MAIN_TEXT_COLOUR = Color.DARK_GRAY;
     public static final int WIDTH = 1920;
@@ -41,14 +40,14 @@ public class StatFriendly extends JFrame{
     private DataSpace userDataSpace;
 
     // EFFECTS: runs the StatFriendly app
-    public StatFriendly() throws IOException {
-        userDataSpace = new JsonReader("./data/userDataSpace.json").read();
+    public StatFriendly() {
         runStatFriendlyGUI();
         runStatFriendlyTerminal();
     }
 
-    // TODO: specifications
-    public void runStatFriendlyGUI(){
+    // MODIFIES: this
+    // EFFECTS: runs statFreindly app GUI
+    public void runStatFriendlyGUI() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("StatFriendly");
         setSize(new Dimension(WIDTH, HEIGHT));
@@ -124,12 +123,14 @@ public class StatFriendly extends JFrame{
                 new InputFrame("Name Your DataSpace", userDataSpace);
                 dispose();
             } else if (command.equals("Load Previous Data Space")) {
-                if(userDataSpace.equals(null)){
-                    // throw some error message
-                } else{
-                    new OptionFrame(userDataSpace);
-                    dispose();
+                try {
+                    userDataSpace = new JsonReader("./data/userDataSpace.json").read();
+                } catch (Exception exception) {
+                    new StatFriendly();
                 }
+
+                new OptionFrame(userDataSpace);
+                dispose();
             } else if (command.equals("Quit")) {
                 System.exit(0);
             }
@@ -140,7 +141,7 @@ public class StatFriendly extends JFrame{
     // MODIFIES: this
     // EFFECTS: processes whether the user would like to use the app
     // and if they would, start a new file or load from a previous
-    private void runStatFriendlyTerminal() {
+    public void runStatFriendlyTerminal() {
         Boolean quit = false;
         String userInput = null;
 

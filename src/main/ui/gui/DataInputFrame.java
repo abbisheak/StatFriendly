@@ -74,7 +74,7 @@ public class DataInputFrame extends JFrame {
 
     // MODIFIES: this
     // EFFECTS: sets up done button for user to indicate the end of input
-    private void initButton(){
+    private void initButton() {
         button = new JButton("Done");
         button.setFont(new Font("Impact", Font.PLAIN, 27));
         button.setForeground(StatFriendly.MAIN_TEXT_COLOUR);

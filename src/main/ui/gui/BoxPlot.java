@@ -11,12 +11,12 @@ import ui.StatFriendly;
 
 // A boxplot diagram for a data set
 public class BoxPlot extends JPanel {
-    private int WIDTH;
-    private int HEIGHT;
-    private int BOX_WIDTH;
-    private int BOX_HEIGHT;
-    private int BOX_X;
-    private int BOX_Y;
+    private int width;
+    private int height;
+    private int boxWidth;
+    private int boxHeight;
+    private int boxX;
+    private int boxY;
     private DoubleDataSet dataSet;
     private ArrayList<Double> sortedData;
     private Double quartile1;
@@ -51,13 +51,13 @@ public class BoxPlot extends JPanel {
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-        WIDTH = getWidth();
-        HEIGHT = getHeight();
-        BOX_WIDTH = WIDTH / 10;
-        BOX_HEIGHT = HEIGHT / 2;
-        BOX_X = (WIDTH - BOX_WIDTH) / 2;
-        BOX_Y = (HEIGHT - BOX_HEIGHT) / 2;
-        scale = BOX_HEIGHT / (sortedData.get(sortedData.size() - 1) - sortedData.get(0));
+        width = getWidth();
+        height = getHeight();
+        boxWidth = width / 10;
+        boxHeight = height / 2;
+        boxX = (width - boxWidth) / 2;
+        boxY = (height - boxHeight) / 2;
+        scale = boxHeight / (sortedData.get(sortedData.size() - 1) - sortedData.get(0));
         median = dataSet.getMean();
         quartile1 = getQuartile(1, 0, sortedData.size() / 2);
         quartile3 = getQuartile(3, sortedData.size() / 2, sortedData.size());
@@ -79,21 +79,21 @@ public class BoxPlot extends JPanel {
     private void render(int q1, int q2, int q3, int lw, int uw, Graphics2D graphics2D) {
         graphics2D.setBackground(StatFriendly.BACKGROUND_COLOUR);
         graphics2D.setColor(Color.GREEN);
-        graphics2D.drawRect(BOX_X, q3, BOX_WIDTH, q1 - q3);
+        graphics2D.drawRect(boxX, q3, boxWidth, q1 - q3);
         graphics2D.setColor(Color.RED);
-        graphics2D.drawLine(BOX_X, q2, BOX_X + BOX_WIDTH, q2);
+        graphics2D.drawLine(boxX, q2, boxX + boxWidth, q2);
         graphics2D.setColor(Color.BLACK);
         graphics2D.setColor(Color.BLACK);
-        graphics2D.drawLine(BOX_X + BOX_WIDTH / 2, q3, BOX_X + BOX_WIDTH / 2, uw);
-        graphics2D.drawLine(BOX_X + BOX_WIDTH / 2, q1, BOX_X + BOX_WIDTH / 2, lw);
-        graphics2D.drawLine(BOX_X, uw, BOX_X + BOX_WIDTH, uw);
-        graphics2D.drawLine(BOX_X, lw, BOX_X + BOX_WIDTH, lw);
+        graphics2D.drawLine(boxX + boxWidth / 2, q3, boxX + boxWidth / 2, uw);
+        graphics2D.drawLine(boxX + boxWidth / 2, q1, boxX + boxWidth / 2, lw);
+        graphics2D.drawLine(boxX, uw, boxX + boxWidth, uw);
+        graphics2D.drawLine(boxX, lw, boxX + boxWidth, lw);
     }
 
     // REQUIRES: quartile == 1 || quartile == 2 || quartile == 3
     // EFFECTS: returns the end y-coordinate for the given quartile
     private int quartileYDimension(Double quartile) {
-        return BOX_Y + BOX_HEIGHT - (int) ((quartile - sortedData.get(0)) * scale);
+        return boxY + boxHeight - (int) ((quartile - sortedData.get(0)) * scale);
     }
 
     @Override

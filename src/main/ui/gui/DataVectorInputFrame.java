@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 // a text field to name a data vector in a data space
-public class DataVectorInputFrame extends JFrame{
+public class DataVectorInputFrame extends JFrame {
     JTextField textField;
     JPanel panel;
     DataSpace dataSpace;
@@ -38,7 +38,7 @@ public class DataVectorInputFrame extends JFrame{
         setVisible(true);
     }
 
-    // MODIFIES: this 
+    // MODIFIES: this
     // EFFECTS: sets up text field on window
     public void initTextField() {
         textField = new JTextField();
@@ -74,7 +74,7 @@ public class DataVectorInputFrame extends JFrame{
         public void actionPerformed(ActionEvent e) {
             DataVector dataVector = new DataVector(textField.getText(), new DoubleDataSet(true));
             dataSpace.addDataVector(dataVector);
-            new DataInputFrame("Enter Your Numerical Data", dataVector,  dataSpace);
+            new DataInputFrame("Enter Your Numerical Data", dataVector, dataSpace);
             dispose();
             textField.setText("");
         }

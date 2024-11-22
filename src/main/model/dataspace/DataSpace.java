@@ -45,7 +45,7 @@ public class DataSpace implements Writable {
         return dataVectors.size();
     }
 
-    // EFFECTS: returns dataVector in the data space with corresponding 
+    // EFFECTS: returns dataVector in the data space with corresponding
     // name, but if none found return null
     public DataVector getDataVector(String name) {
         DataVector dataVector = null;
@@ -56,6 +56,11 @@ public class DataSpace implements Writable {
         }
 
         return dataVector;
+    }
+
+    // EFFECTS: returns names for all data vectors in data space
+    public List<String> getNames() {
+        return null;
     }
 
     // EFFECTS: returns a json object for this data space

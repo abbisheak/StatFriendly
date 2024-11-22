@@ -60,7 +60,13 @@ public class DataSpace implements Writable {
 
     // EFFECTS: returns names for all data vectors in data space
     public List<String> getNames() {
-        return null;
+
+        List<String> names = new ArrayList<>();
+        for (DataVector dv : dataVectors) {
+            names.add(dv.getName());
+        }
+
+        return names;
     }
 
     // EFFECTS: returns a json object for this data space

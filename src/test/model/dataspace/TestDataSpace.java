@@ -11,15 +11,14 @@ import org.junit.jupiter.api.BeforeEach;
 import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 public class TestDataSpace {
     DataSpace testDataSpace;
     DataVector dv1;
     DataVector dv2;
     DataVector dv3;
-    
+
     @BeforeEach
-    public void runBefore(){
+    public void runBefore() {
         dv1 = new DataVector("1", new DoubleDataSet(false));
         dv2 = new DataVector("2", new DoubleDataSet(false));
         dv3 = new DataVector("3", new DoubleDataSet(false));
@@ -27,7 +26,7 @@ public class TestDataSpace {
     }
 
     @Test
-    public void testGetDataVector(){
+    public void testGetDataVector() {
         testDataSpace.addDataVector(dv1);
         testDataSpace.addDataVector(dv2);
         testDataSpace.addDataVector(dv3);
@@ -39,7 +38,7 @@ public class TestDataSpace {
     }
 
     @Test
-    public void testGetNames(){
+    public void testGetNames() {
 
         assertEquals(new ArrayList<>(), testDataSpace.getNames());
 

@@ -61,3 +61,9 @@ Statistics has been the start of everything for me, it is the reason why I am cu
 - <<Fri Nov 29 10:42:30 PST 2024>>Data entry added to data set for data vector.
 - <<Fri Nov 29 10:42:30 PST 2024>>Data vector mean retreived
 - <<Fri Nov 29 10:42:41 PST 2024>>Data vector <Data vector 2> added to data space.
+
+# Phase 4: Task 3
+
+I am quite happy with the turnout of my project, however there are many design aspects of my project that I wish I could've changed if I had more time. Starting off, the user may notice in the code functionality that allows the user to store data as the data type long. This functionality is not available to the user, as I found that my project started to exponentially become more complicated, as the project scaled through the months, hence I only used the Double type functionality. I would have wanted to implement the long data type for the app, as this would ensure greater accuracy, but I struggled to find a middle ground between repeated code and functionality for the implementation.
+
+A major let down of the project, was the inability of the app to provide confidence intervals for varying confidence levels. As of right now the project provides confidence intervals at a fixed confidence level of 95%. I wanted to allow the user the ability to select their confidence level, but this required a more advanced program. I had asked TA's and my instructor for advice, which led to me looking at using external libraries, however the current state of the project did not allow for that. My implementation of recording data argued with the implementation of these external libraries, which did not allow me to move forward with my goal. The main issue was that I coded my project without the thought of using external libraries such as java stat, hence if I had more time I would scrap and redesign my primitive data types.

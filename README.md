@@ -36,3 +36,28 @@ Statistics has been the start of everything for me, it is the reason why I am cu
 - You can locate my visual component by accessing the "View Data" option as outlined in the first required action. From there you will see a box plot diagram that is customized for the data vector that is being viewed.
 - You can save the state of my application by navigating from the data vector options that allow you to view and add data entries, to the data vector selection page by clicking "Go Back". From there the user will have the option to "Save and Quit".
 - You can reload the state of my application by starting the application, where the user will have the option presented to "Load Previous Data Space".
+
+# Phase 4: Task 2
+
+- <<Fri Nov 29 10:42:20 PST 2024>>Data vector <Data vector 1> added to data space.
+- <<Fri Nov 29 10:42:24 PST 2024>>Calculated statistics for data set.
+- <<Fri Nov 29 10:42:24 PST 2024>>Data entry added to data set for data vector.
+- <<Fri Nov 29 10:42:25 PST 2024>>Calculated statistics for data set.
+- <<Fri Nov 29 10:42:25 PST 2024>>Data entry added to data set for data vector.
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector mean retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector median retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector mode retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector max retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector min retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector standard deviation retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector mean retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector standard deviation retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector 95% confidence interval retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector mean retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Calculated statistics for data set.
+- <<Fri Nov 29 10:42:30 PST 2024>>Data entry added to data set for data vector.
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector mean retreived
+- <<Fri Nov 29 10:42:30 PST 2024>>Calculated statistics for data set.
+- <<Fri Nov 29 10:42:30 PST 2024>>Data entry added to data set for data vector.
+- <<Fri Nov 29 10:42:30 PST 2024>>Data vector mean retreived
+- <<Fri Nov 29 10:42:41 PST 2024>>Data vector <Data vector 2> added to data space.

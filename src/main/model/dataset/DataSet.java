@@ -3,6 +3,9 @@ package model.dataset;
 import java.util.HashSet;
 import java.util.Iterator;
 
+import model.logging.Event;
+import model.logging.EventLog;
+
 // Represents a data set for a specific concept
 public abstract class DataSet<T, W> {
 
@@ -31,6 +34,7 @@ public abstract class DataSet<T, W> {
         if (data != null && !contains(data)) {
             dataSet.add(data);
             calculate(data);
+            EventLog.getInstance().logEvent(new Event("Data entry added to data set for data vector."));
         }
     }
 
@@ -80,31 +84,37 @@ public abstract class DataSet<T, W> {
 
     // REQUIRES: !dataSet.isEmpty()
     public Double getMean() {
+        EventLog.getInstance().logEvent(new Event("Data vector mean retreived"));
         return mean;
     }
 
     // REQUIRES: !dataSet.isEmpty()
     public T getMedian() {
+        EventLog.getInstance().logEvent(new Event("Data vector median retreived"));
         return median;
     }
 
     // REQUIRES: !dataSet.isEmpty()
     public T getMode() {
+        EventLog.getInstance().logEvent(new Event("Data vector mode retreived"));
         return mode;
     }
 
     // REQUIRES: !dataSet.isEmpty()
     public T getMax() {
+        EventLog.getInstance().logEvent(new Event("Data vector max retreived"));
         return max;
     }
 
     // REQUIRES: !dataSet.isEmpty()
     public T getMin() {
+        EventLog.getInstance().logEvent(new Event("Data vector min retreived"));
         return min;
     }
 
     // REQUIRES: !dataSet.isEmpty()
     public Double getStandardDeviation() {
+        EventLog.getInstance().logEvent(new Event("Data vector standard deviation retreived"));
         return standardDeviation;
     }
 
@@ -123,6 +133,7 @@ public abstract class DataSet<T, W> {
         setMax(data);
         setMin(data);
         setStandardDeviation();
+        EventLog.getInstance().logEvent(new Event("Calculated statistics for data set."));
     }
 
     // MODIFIES: this

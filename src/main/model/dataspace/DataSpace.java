@@ -3,6 +3,9 @@ package model.dataspace;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import model.logging.Event;
+import model.logging.EventLog;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -31,6 +34,8 @@ public class DataSpace implements Writable {
     // EFFECTS: adds data vector to data space
     public void addDataVector(DataVector dataVector) {
         dataVectors.add(dataVector);
+        EventLog.getInstance().logEvent(new Event("Data vector <" + dataVector.getName()
+                + "> added to data space."));
     }
 
     // EFFECTS: returns a modifiable list data vectors in this data space

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import model.dataspace.DataSpace;
 import model.dataspace.DataVector;
+import model.logging.EventLog;
+import model.logging.Event;
 import persistence.JsonWriter;
 import ui.StatFriendly;
 
@@ -129,29 +131,37 @@ public class OptionFrame extends JFrame {
         // if "Quit" then exit the application
         @Override
         public void actionPerformed(ActionEvent e) {
-            String command = e.getActionCommand();
-            if (dataSpace.getNames().contains(command)) {
-                new OptionFrame(dataSpace.getDataVector(command), dataSpace);
+            if (dataSpace.getNames().contains(e.getActionCommand())) {
+                new OptionFrame(dataSpace.getDataVector(e.getActionCommand()), dataSpace);
                 dispose();
-            } else if (command.equals("View Data")) {
+            } else if (e.getActionCommand().equals("View Data")) {
                 new DataFrame(dataVector, dataSpace);
                 dispose();
-            } else if (command.equals("Add Data")) {
+            } else if (e.getActionCommand().equals("Add Data")) {
                 new DataInputFrame("Enter Your Numerical Data", dataVector, dataSpace);
                 dispose();
-            } else if (command.equals("Add New Data Vector")) {
+            } else if (e.getActionCommand().equals("Add New Data Vector")) {
                 new DataVectorInputFrame("Enter The Name of Your Data Vector:", dataSpace);
                 dispose();
-            } else if (command.equals("Go Back")) {
+            } else if (e.getActionCommand().equals("Go Back")) {
                 new OptionFrame(dataSpace);
                 dispose();
-            } else if (command.equals("Save and Quit")) {
+            } else if (e.getActionCommand().equals("Save and Quit")) {
                 save();
+                printLog();
                 System.exit(0);
-            } else if (command.equals("Quit")) {
+            } else if (e.getActionCommand().equals("Quit")) {
+                printLog();
                 System.exit(0);
             }
         }
+    }
 
+    // EFFECTS: Prints to terminal all logged events of the user interacting
+    // with application
+    public void printLog() {
+        for (Event e : EventLog.getInstance()) {
+            System.out.println("<<" + e.getDate() + ">>" + e.getDescription());
+        }
     }
 }

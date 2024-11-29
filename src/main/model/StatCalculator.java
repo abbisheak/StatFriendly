@@ -2,6 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
+import model.logging.Event;
+import model.logging.EventLog;
+
 // represents a calculator that performs computations for statistical
 // analysis
 public class StatCalculator {
@@ -25,6 +28,7 @@ public class StatCalculator {
         ArrayList<Double> confidenceInterval = new ArrayList<>();
         confidenceInterval.add(lowerBound);
         confidenceInterval.add(upperBound);
+        EventLog.getInstance().logEvent(new Event("Data vector 95% confidence interval retreived"));
 
         return confidenceInterval;
     }
